@@ -11,10 +11,16 @@
     "type": "git",
     "url": "git+https://github.com/Tarek731/Project_2.git"
   },
-  "author": "",
+  "author": "Tarek, Joseph Ball",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Tarek731/Project_2/issues"
   },
-  "homepage": "https://github.com/Tarek731/Project_2#readme"
+  "homepage": "https://github.com/Tarek731/Project_2#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.9"
+  }
 }
