@@ -7,7 +7,7 @@ var methodOverride = require('method-override');
 var passport = require('passport');
 
 // imported files
-var router = require('./controllers/controller.js');
+var router = require('./routes/routes.js');
 var models = require('./models');
 
 // set port
@@ -37,6 +37,9 @@ app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
 // routes
 app.use('/', router);
+
+// passport strategy
+require('./config/passport/passport.js')(passport, models.user);
 
 // setup server to sync models and listen
 models.sequelize.sync({ force: true }).then(function() {

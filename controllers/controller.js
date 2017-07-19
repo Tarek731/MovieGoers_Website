@@ -1,11 +1,11 @@
-// node packages
-var express = require('express');
-// setup router
-var router = express.Router();
-
-
-router.get('/', function(req, res) {
-	res.render('index', { title: 'Movies - Login' });
-});
-
-module.exports = router;
+module.exports = {
+	signUpPage: function(req, res) {
+		res.render('sign-up', {title: 'Movies - Sign Up'});
+	},
+	loginPage: function(req, res) {
+		res.render('login', { title: 'Movies - Login' });
+	},
+	login: function(req, res) {
+		res.send('logged in');
+	}
+}
