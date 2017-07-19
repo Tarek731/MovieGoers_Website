@@ -7,7 +7,7 @@ var methodOverride = require('method-override');
 var passport = require('passport');
 
 // imported files
-var router = require('./routes/routes.js');
+var router = require('./controllers/controller.js');
 var models = require('./models');
 
 // set port
