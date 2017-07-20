@@ -1,4 +1,7 @@
 
+li{
+    font-family: 'Montserrat', sans-serif;
+}
 h2{
      font-family: 'Lobster', cursive;  
 }
@@ -23,7 +26,7 @@ margin-left: 600px;
 
 body {
    
-    background-color:black; 
+  background-image: url("../img/halftone.jpg");
 
 }
 #login {
