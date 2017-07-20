@@ -1,7 +1,10 @@
 
+
 li{
     font-family: 'Montserrat', sans-serif;
 }
+
+
 h2{
      font-family: 'Lobster', cursive;  
 }
@@ -58,7 +61,6 @@ body {
 #login .checkbox.show:before {
     content: '\e013';
     color: #1fa67b;
- 
     font-size: 17px;
     margin: 1px 0 0 3px;
     position: absolute;
