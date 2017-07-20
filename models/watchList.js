@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-	var WatchList = sequelize.define('watchlist', {
+	var Watchlist = sequelize.define('watchlist', {
 		title: {
 			type: DataTypes.STRING,
 			allowNull: false
@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
 	{
 		classMethods: {
 			associate: function(models) {
-				WatchList.belongsTo(models.user, {
+				Watchlist.belongsTo(models.user, {
 					foreignKey: {
 						allowNull: false
 					}
@@ -28,5 +28,5 @@ module.exports = function(sequelize, DataTypes) {
 			}
 		}
 	});
-	return WatchList;
+	return Watchlist;
 } 
