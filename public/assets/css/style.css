@@ -1,0 +1,122 @@
+
+
+li{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+h2{
+     font-family: 'Lobster', cursive;  
+}
+.image{
+     background-image: url("../img/movie.jpg");
+       background-size: 100%;
+}
+
+.jumbotron{
+    /*background-image: url("../img/wallpaper.jpg");*/
+    min-height: 100px; 
+    font-family: 'Lobster', cursive;
+}
+
+.form-wrap
+{
+ border-width: 5px;
+ border-color: #3b5998;
+ margin-bottom: 150px;
+margin-left: 600px;
+}
+
+body {
+   
+  background-image: url("../img/halftone.jpg");
+
+}
+#login {
+    padding-top: 150px
+}
+#login .form-wrap {
+    width: 30%;
+    
+}
+#login h1 {
+    color: #3b5998;
+    font-size: 18px;
+    text-align: center;
+  
+    padding-bottom: 20px;
+}
+#login .form-group {
+    margin-bottom: 25px;
+}
+#login .checkbox {
+    margin-bottom: 20px;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+#login .checkbox.show:before {
+    content: '\e013';
+    color: #1fa67b;
+    font-size: 17px;
+    margin: 1px 0 0 3px;
+    position: absolute;
+    pointer-events: none;
+    /*font-family: 'Glyphicons Halflings'*/;
+}
+#login .checkbox .character-checkbox {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    display: inline-block;
+}
+#login .checkbox .label {
+    color: #6d6d6d;
+    font-size: 13px;
+    font-weight: normal;
+}
+#login .btn.btn-custom {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+#login .forget {
+    font-size: 13px;
+    text-align: center;
+    display: block;
+}
+
+/*    --------------------------------------------------
+    :: Inputs & Buttons
+    -------------------------------------------------- */
+.form-control {
+    color: #212121;
+}
+.btn-custom {
+    color: white;
+    background-color: #3b5998;
+}
+.btn-custom:hover,
+.btn-custom:focus {
+    color: #fff;
+}
+
+/*    --------------------------------------------------
+    :: Footer
+    -------------------------------------------------- */
+#footer {
+    color: #6d6d6d;
+    font-size: 12px;
+    text-align: center;
+}
+#footer p {
+    margin-bottom: 0;
+}
+#footer a {
+    color: inherit;
+}
