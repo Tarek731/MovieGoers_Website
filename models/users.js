@@ -22,15 +22,13 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.ENUM('active', 'inactive'),
 			defaultValue: 'active'
 		}
-	},
-	{
-		classMethods: {
-			associate: function(models) {
-				User.hasMany(models.watchlist, {
-					onDelete: 'cascade'
-				});
-			}
-		}
 	});
+
+	User.associate = function(models) {
+		User.hasMany(models.watchlist, {
+			onDelete: 'cascade'
+		});
+	}
+	
 	return User;
 }

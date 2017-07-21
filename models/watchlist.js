@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 		},
-		imdbID: {
+		imdbId: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
@@ -16,17 +16,15 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.STRING,
 			allowNull: false,
 		}
-	},
-	{
-		classMethods: {
-			associate: function(models) {
-				Watchlist.belongsTo(models.user, {
-					foreignKey: {
-						allowNull: false
-					}
-				});
-			}
-		}
 	});
+
+	Watchlist.associate = function(models) {
+		Watchlist.belongsTo(models.user, {
+			foreignKey: {
+				allowNull: false
+			}
+		});
+	}
+
 	return Watchlist;
 } 
