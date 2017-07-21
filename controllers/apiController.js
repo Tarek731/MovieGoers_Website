@@ -23,7 +23,7 @@ router.route('/watchlist/:movieId?')
 		});
 	});
 
-router.get('/api/userData', isLoggedIn, function(req, res) {
+router.get('/userData', isLoggedIn, function(req, res) {
 	res.json(req.user);
 });
 
