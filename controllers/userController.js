@@ -1,16 +1,6 @@
 // node packages
 var express = require('express');
 var passport = require('passport');
-//====parendu added user require
-
-var user = require("../models/user.js");
-var app = express();
-
-app.get('/', function(req, res){
-	res.render('user');
-})
-
-//======
 
 // setup router
 var router = express.Router();
