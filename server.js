@@ -7,7 +7,8 @@ var methodOverride = require('method-override');
 var passport = require('passport');
 
 // imported files
-var router = require('./controllers/controller.js');
+var userRoutes = require('./controllers/userController.js');
+var apiRoutes = require('./controllers/apiController.js')
 var models = require('./models');
 
 // set port
@@ -31,14 +32,15 @@ app.set('view engine', 'handlebars');
 app.use(session({
 	secret: 'super secret',
 	resave: true,
-	saveUninitialized: true
+	saveUninitialized: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 // static folder
 app.use(express.static(__dirname + '/public'));
 // routes
-app.use('/', router);
+app.use('/', userRoutes);
+app.use('/api', apiRoutes);
 
 // passport strategy
 require('./config/passport/passport.js')(passport, models.user);

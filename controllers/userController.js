@@ -21,7 +21,16 @@ router.get('/', function(req, res) {
 	} else {
 		res.render('index', { title: 'Movies' });
 	}
-})
+});
+
+router.route('/sign-up')
+	.get(function(req, res) {
+		res.render('sign-up', { title: 'Movies - Sign Up' });
+	})
+	.post(passport.authenticate('local-signup', {
+		successRedirect: '/user',
+		failureRedirect: '/sign-up'
+	}));
 
 router.route('/login')
 	.get(function(req, res) {
@@ -37,15 +46,6 @@ router.get('/logout', function(req, res) {
 		res.redirect('/');
 	});
 });
-
-router.route('/sign-up')
-	.get(function(req, res) {
-		res.render('sign-up', { title: 'Movies - Sign Up' });
-	})
-	.post(passport.authenticate('local-signup', {
-		successRedirect: '/user',
-		failureRedirect: '/sign-up'
-	}));
 
 router.get('/user', isLoggedIn, function(req, res) {
 	res.render('user', { title: 'Movies - User' })

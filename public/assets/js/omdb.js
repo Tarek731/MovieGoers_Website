@@ -4,6 +4,7 @@ $(document).ready(function() {
 		var queryMovie = $('#search-input').val().trim();
 		console.log("search: " + queryMovie);
 		var queryURL = 'http://www.omdbapi.com/?s='+queryMovie+'&y=&type=movie&r=json&apikey=40e9cece';
+
         console.log(queryURL);
 		
 		
