@@ -52,6 +52,11 @@
                             <!-- /btn-group -->
                         </div>
                         <!-- /input-group -->
+                        <form action="/api/movieSearch" method="GET">
+                            <input type="text" name="movie">
+
+                            <button type="submit">Submit</button>
+                          </form>
                         
                     </div>
                                         <!-- /.col-lg-6 -->
@@ -74,13 +79,13 @@
                 <div class="col col-left-center col-full-xs" id="searchResult">
 
            <ul>
-           		{{#each Search}}
+           		{{#each data}}
 
            			<div class='eachMovie bottom_divider'>
-           			<h3>{{Search.Title}}>
+           			<h3>{{this.Title}}</h3>
 
                          
-								<form action='movie/updateOn e/{{this.id}}?_method=PUT' method='POST'>
+								<form action='movie/updateOn e/?_method=PUT' method='POST'>
 									<input type='hidden' name='devoured' value='true'>
 									<button type='submit' class="btn btn-default">Watch later!</button>
 								</form>
@@ -89,6 +94,7 @@
                     
                     <!-- articles will display here
                 <! </div> -->
+                {{/each}}
 
                          </div>
                 		</each>
