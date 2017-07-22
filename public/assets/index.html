@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+
 </head>
 
 <body>
@@ -42,7 +43,7 @@
                     <!-- log in glyphicon and link in navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     </ul>
                 </div>
         </nav>
@@ -50,7 +51,7 @@
         
 
       <!-- start of carousel -->
-        <div id="carousel-example-generic" class="carousel slide" data-ride;" >
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -150,7 +151,8 @@
             </div>
             
 
-  
+  <div class="row">
+                        <div class="col-xs-8">
             <!-- dropdown container -->
             <div class="jumbotron">
                 <div class="container">
@@ -174,6 +176,13 @@
                 </div>
             </div>
         </div>
+       <!-- column for twitter feed -->
+        <div class="col-xs-4">
+      <div id="twitter-feed"></div>
+        </div>
+
+        <div class="row">
+                        <div class="col-xs-12">
         <!-- about container -->
         <div class="about">
             <div class="row">
@@ -187,13 +196,19 @@
                         <img src="img/new.png" alt="Mountain View" style="width:100px;height:100px;"></center>
                         </div>
                         
+            </div>
+            </div>
             </div>         
         </div>
+</div>        
+
         <!-- end of about container -->
         <!-- jQuery Script -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
         <script type="text/javascript" src="js/style.js"></script>
+        <script type="text/javascript" src="js/liri.js"></script>
 </body>
 
 </html>

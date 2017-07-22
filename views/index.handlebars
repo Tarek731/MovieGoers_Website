@@ -1,12 +1,200 @@
 <div class="container">
+        <!-- navbar with search -->
+        <nav class="navbar navbar-default navbar-inverse navbar-toggleable-lg">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <!-- navbar collapses to button on small screen -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <a class="navbar-brand" href="#">WebSiteName</a>
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Resources</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search Actors">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- log in glyphicon and link in navbar -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                </div>
+        </nav>
+        <!-- end navbar -->
+        
 
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <h1>Welcome Our Movies Web App!</h1>
-                <a href="/login">Click to Login</a> | <a href="/sign-up">Click to Sign Up</a>
-            </div> <!-- /.col-xs-12 -->
-        </div> <!-- /.row -->
-    </div> <!-- /.container -->
+      <!-- start of carousel -->
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
 
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="img/movie2.jpg" alt="...">
+      <div class="carousel-caption">
+        <h1>POSTER CULTURE SHOP NOW</h1>
+      </div>
+    </div>
+    <div class="item">
+      <img src="img/movie1.jpg" alt="...">
+      <div class="carousel-caption">
+      <h1>ALL POSTERS SHIP NEXT DAY</h1>
+      </div>
+    </div>
+    <div class="item">
+      <img src="img/movie3.jpg" alt="...">
+      <div class="carousel-caption">
+      <h1>SUMMER SALE</h1>
+      </div>
+    </div>  
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
+<!-- end of carousel -->
+
+
+
+        <div class="image">
+            <section id="login">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-wrap">
+                                <h1> LOG-IN</h1>
+                                <form role="form" action="js/style.js" method="post" id="login-form" autocomplete="off">
+                                    <div class="form-group">
+                                        <label for="email" class="sr-only">Email</label>
+                                        <input type="email" name="email" id="email" class="form-control" placeholder="somebody@example.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="key" class="sr-only">Password</label>
+                                        <input type="password" name="key" id="key" class="form-control" placeholder="Password">
+                                    </div>
+                                    <div class="checkbox">
+                                        <span class="character-checkbox" onclick="showPassword()"></span>
+                                        <span class="label">Show password</span>
+                                    </div>
+                                    <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in">
+                                </form>
+                                <a href="js/style.js" class="forget" data-toggle="modal" data-target=".forget-modal">Forgot your password?</a>
+                                <hr>
+                            </div>
+                        </div>
+                        <!-- /.col-xs-12 -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container -->
+            </section>
+            </div>
+            <div class="modal fade forget-modal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">×</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <h4 class="modal-title">Recovery password</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Type your email account</p>
+                            <input type="email" name="recovery-email" id="recovery-email" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-custom">Recovery</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+  <div class="row">
+        <div class="col-xs-8">
+            <!-- dropdown container -->
+            <div class="jumbotron">
+                <div class="container">
+                    <h1><center>Browse Movies by</center></h1>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Catergory
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">VIEWER RATING</a></li>
+                            <li><a href="#">NEWEST</a></li>
+                            <li><a href="#"></a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">RATING</li>
+                            <li><a href="#">NA</a></li>
+                            <li><a href="#">R</a></li>
+                            <li><a href="#">PG-13</a></li>
+                            <li><a href="#">PG</a></li>
+                            <li><a href="#">G</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <!-- column for twitter feed -->
+        <div class="col-xs-4">
+            <div id="twitter-feed">
+                <ul>
+                    {{#each tweets}}
+                        <li>{{this.text}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+                        <div class="col-xs-12">
+        <!-- about container -->
+        <div class="about">
+            <div class="row">
+                <div class="col-md-4"><center><h2>Whats HOT</h2><br>
+                <img src="../public/assets/img/hot.png" alt="Mountain View" style="width:100px;height:100px;"></center>
+                </div>
+                    <div class="col-md-4"><center><h2>Whats Trending</h2><br>
+                    <img src="../public/assets/img/trending.png" alt="Mountain View" style="width:100px;height:100px;"></center>
+                    </div>    
+                        <div class="col-md-4"><center><h2>Whats New</h2><br>
+                        <img src="../public/assets/img/new.png" alt="Mountain View" style="width:100px;height:100px;"></center>
+                        </div>
+                        
+            </div>
+            </div>
+            </div>         
+        </div>
+</div>        
+
+        <!-- end of about container -->
+        <!-- jQuery Script -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+        <script type="text/javascript" src="../public/assets/js/style.js"></script>
+        <script type="text/javascript" src="js/liri.js"></script>
