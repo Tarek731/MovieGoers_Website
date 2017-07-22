@@ -7,6 +7,7 @@ $(document).ready(function() {
 
         console.log(queryURL);
 		
+
 		
 
 	$.getJSON(queryURL, function() {
@@ -74,6 +75,7 @@ $(document).ready(function() {
 		// });
 	}
 
-	 $('#search-submit').on('click', movieSearch);
+	 // $('#search-submit').on('click', movieSearch);
 });
+
 

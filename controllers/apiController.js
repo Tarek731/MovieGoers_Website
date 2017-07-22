@@ -1,6 +1,5 @@
 // node packages
 var express = require('express');
-//var passport = require('passport');
 var request = require('request');
 // setup router
 var router = express.Router();
@@ -11,6 +10,7 @@ router.route('/watchlist/:movieId?')
 	.get(isLoggedIn, function(req, res) {
 		models.watchlist.findAll({ where: { userId: req.user.id }}).then(function(list) {
 			res.json(list);
+			console.log(list);
 		});
 	})
 	.post(isLoggedIn, function(req, res) {
@@ -28,8 +28,8 @@ router.get('/userData', isLoggedIn, function(req, res) {
 	res.json(req.user);
 });
 
-router.get('/movieSearch/:movie', function(req, res) {
-	var queryMovie = req.params.movie;
+router.put('/movieSearch', function(req, res) {
+	var queryMovie = req.body.movie;
 		var queryURL = 'http://www.omdbapi.com/?s='+queryMovie+'&y=&type=movie&r=json&apikey=40e9cece';
 	request(queryURL, function(err, response, body) {
 		var dataObj = JSON.parse(body);
@@ -39,7 +39,11 @@ router.get('/movieSearch/:movie', function(req, res) {
 		};
 	 // var hbsObj = {Search: body};
 		console.log(hbsObj);
-		res.render('user', hbsObj)
+		if (req.isAuthenticated()) {
+			res.render('user', hbsObj);
+		} else {
+			res.render('index', hbsObj);
+		}
 	});
 });
 
