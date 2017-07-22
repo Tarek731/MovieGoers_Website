@@ -24,8 +24,10 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 // method override
 app.use(methodOverride('_method'));
 // handlebars
+
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
+
 // passport
 app.use(session({
 	secret: 'super secret',

@@ -1,4 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
+
 	var Watchlist = sequelize.define('watchlist', {
 		title: {
 			type: DataTypes.STRING,
@@ -28,3 +29,4 @@ module.exports = function(sequelize, DataTypes) {
 
 	return Watchlist;
 } 
+
