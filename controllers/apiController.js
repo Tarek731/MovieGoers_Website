@@ -32,10 +32,12 @@ router.get('/movieSearch/:movie', function(req, res) {
 	var queryMovie = req.params.movie;
 		var queryURL = 'http://www.omdbapi.com/?s='+queryMovie+'&y=&type=movie&r=json&apikey=40e9cece';
 	request(queryURL, function(err, response, body) {
+		var dataObj = JSON.parse(body);
 		var hbsObj = {
 			title: "Movies - User",
-			data: body
+			data: dataObj.Search
 		};
+	 // var hbsObj = {Search: body};
 		console.log(hbsObj);
 		res.render('user', hbsObj)
 	});

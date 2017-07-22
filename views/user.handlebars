@@ -27,7 +27,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="#">Profile</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="/auth/logout">Sign Out</a></li>
+                                <li><a href="/logout">Sign Out</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -69,29 +69,24 @@
         <!-- /.section-->
     
         <!-- ============== / divider ================= -->
-         {{!-- <section class="movie"> --}}
+        
             <div class="row">
                 <div class="col col-left-center col-full-xs" id="searchResult">
 
-           <ul>
-           		{{#each Search}}
+                  <ul>
+           		     {{#each data}}
 
-           			<div class='eachMovie bottom_divider'>
-           			<h3>{{Search.Title}}>
+           			    <div class='eachMovie bottom_divider'>
+           			<h3>{{this.Title}}</h3>
 
                          
 								<form action='movie/updateOn e/{{this.id}}?_method=PUT' method='POST'>
 									<input type='hidden' name='devoured' value='true'>
 									<button type='submit' class="btn btn-default">Watch later!</button>
 								</form>
-							  </div>
-							</h5>
-                    
-                    <!-- articles will display here
-                <! </div> -->
-
-                         {{!-- </div> --}}
-                		</each>
+					 </div>
+							
+                   {{/each}}
                      </ul>
                     </div> 
                 </div>

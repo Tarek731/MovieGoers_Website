@@ -3,7 +3,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		var queryMovie = $('#search-input').val().trim();
 		console.log("search: " + queryMovie);
-		var queryURL = 'http://www.omdbapi.com/?s='+queryMovie+'&y=&type=movie&r=json&apikey=40e9cece';
+		var queryURL = '/api/movieSearch/'+queryMovie;
 
         console.log(queryURL);
 		
@@ -11,11 +11,12 @@ $(document).ready(function() {
 
 	$.getJSON(queryURL, function() {
          console.log("success");
-     }).done(function(response) {
-			console.log(response);
-			console.log(response.Search);
+     });
+ // .done(function(response) {
+	// 		console.log(response);
+	// 		console.log(response.Search);
 
-		  $("#search-term").text("SEARCH RESULT FOR: " + queryMovie);	
+	// 	  $("#search-term").text("SEARCH RESULT FOR: " + queryMovie);	
 
 // // create Movie list 
 //          for (var i = 0; i < response.Search.length; i++) {
@@ -70,9 +71,9 @@ $(document).ready(function() {
 
 
 
-		});
+		// });
 	}
 
-	$('#search-submit').on('click', movieSearch);
+	 $('#search-submit').on('click', movieSearch);
 });
 
