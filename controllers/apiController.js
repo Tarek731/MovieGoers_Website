@@ -9,17 +9,32 @@ var models = require('../models');
 router.route('/watchlist/:movieId?')
 	.get(isLoggedIn, function(req, res) {
 		models.watchlist.findAll({ where: { userId: req.user.id }}).then(function(list) {
-			res.json(list);
+			console.log(list);
+			var hbsObj = {
+				title: 'Movies - watchlist',
+				list: list
+			};
+			res.render('watchlist', hbsObj)
 		});
 	})
 	.post(isLoggedIn, function(req, res) {
 		models.watchlist.create(req.body).then(function(list) {
-			res.json(list);
+			console.log(list);
+			var hbsObj = {
+				title: 'Movies - watchlist',
+				list: list
+			};
+			res.render('watchlist', hbsObj)
 		});
 	})
 	.delete(isLoggedIn, function(req, res) {
 		models.watchlist.destroy({ where: { id: req.params.movieId }}).then(function(list) {
-			res.json(list);
+			console.log(list);
+			var hbsObj = {
+				title: 'Movies - watchlist',
+				list: list
+			};
+			res.render('watchlist', hbsObj)
 		});
 	});
 
