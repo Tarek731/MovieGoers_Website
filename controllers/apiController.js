@@ -42,7 +42,9 @@ router.get('/userData', isLoggedIn, function(req, res) {
 	res.json(req.user);
 });
 
-router.put('/movieSearch', function(req, res) {
+// why???
+// router.put('/movieSearch', function(req, res) {
+router.post('/movieSearch', function(req, res) {
 		var queryMovie = req.body.movie;
 		var queryURL = 'http://www.omdbapi.com/?s='+queryMovie+'&y=&type=movie&r=json&apikey=40e9cece';
 	request(queryURL, function(err, response, body) {
