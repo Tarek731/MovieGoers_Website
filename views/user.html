@@ -1,4 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="../public/assets/css/style.css" /> -->
+    <link rel="stylesheet" type="text/css" href="../public/assets/css/user.css" />
+</head>
+
+<body>
     <div class="container">
         <!-- navbar with search -->
         <nav class="navbar navbar-inverse ">
@@ -52,11 +68,6 @@
                             <!-- /btn-group -->
                         </div>
                         <!-- /input-group -->
-                        <form action="/api/movieSearch?_method=PUT" method="POST">
-                            <input type="text" name="movie">
-
-                            <button type="submit">Submit</button>
-                          </form>
                         
                     </div>
                                         <!-- /.col-lg-6 -->
@@ -74,32 +85,21 @@
         <!-- /.section-->
     
         <!-- ============== / divider ================= -->
-         <section class="movie">
+        <section class="movie">
             <div class="row">
                 <div class="col col-left-center col-full-xs" id="searchResult">
-
-           <ul>
-           		{{#each data}}
-
-           			<div class='eachMovie bottom_divider'>
-           			<h3>{{this.Title}}</h3>
-
-                         
-								<form action='movie/updateOn e/?_method=PUT' method='POST'>
-									<input type='hidden' name='devoured' value='true'>
-									<button type='submit' class="btn btn-default">Watch later!</button>
-								</form>
-							  </div>
-							</h5>
                     
                     <!-- articles will display here
                 <! </div> -->
-                {{/each}}
-
-                         </div>
-                		</each>
-                     </ul>
-                    </div> 
+                    <!-- </div> -->
                 </div>
         </section>
-       </div>
+        </div>
+        <!-- container -->
+        <!-- jQuery Script -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="../public/assets/js/omdb.js"></script>
+</body>
+
+</html>

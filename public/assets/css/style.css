@@ -49,6 +49,7 @@ body {
     font-size: 18px;
     text-align: center;
   
+
     padding-bottom: 20px;
 }
 #login .form-group {
@@ -70,7 +71,9 @@ body {
     margin: 1px 0 0 3px;
     position: absolute;
     pointer-events: none;
+
     /*font-family: 'Glyphicons Halflings'*/;
+
 }
 #login .checkbox .character-checkbox {
     width: 25px;
@@ -103,8 +106,10 @@ body {
     color: #212121;
 }
 .btn-custom {
+
     color: white;
     background-color: #3b5998;
+
 }
 .btn-custom:hover,
 .btn-custom:focus {

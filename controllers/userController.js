@@ -1,6 +1,7 @@
 // node packages
 var express = require('express');
 var passport = require('passport');
+
 // setup router
 var router = express.Router();
 var fs = require("fs")
@@ -57,7 +58,16 @@ router.get ('/', function(req, res) {
 			res.render('index', data);
 		})
 	}
-})
+});
+
+router.route('/sign-up')
+	.get(function(req, res) {
+		res.render('sign-up', { title: 'Movies - Sign Up' });
+	})
+	.post(passport.authenticate('local-signup', {
+		successRedirect: '/user',
+		failureRedirect: '/sign-up'
+	}));
 
 router.route('/login')
 	.get(function(req, res) {
@@ -74,19 +84,28 @@ router.get('/logout', function(req, res) {
 	});
 });
 
-router.route('/sign-up')
-	.get(function(req, res) {
-		res.render('sign-up', { title: 'Movies - Sign Up' });
-	})
-	.post(passport.authenticate('local-signup', {
-		successRedirect: '/user',
-		failureRedirect: '/sign-up'
-	}));
-
 router.get('/user', isLoggedIn, function(req, res) {
 	res.render('user', { title: 'Movies - User' })
 });
 
+
+//parendu added
+//add watchlist movie
+// router.post('/user', function(req, res){
+// 	user.create(req.body.title, function(result){
+// 		res.redirect('/user');
+// 	});
+// });
+
+//parendu added
+//display watchlist
+// router.get('/watchlist', function(req, res) {
+// 	burger.selectAll(function(data) {
+// 		var hbsObject = {watchlist: data};
+// 		console.log(hbsObject);
+// 		res.render('watchlist.handlebars', hbsObject);
+// 	});
+// });
 
 // function to test if user is logged in
 function isLoggedIn(req, res, next) {

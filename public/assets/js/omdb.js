@@ -1,15 +1,14 @@
 $(document).ready(function() {
-	function movieSearch() {
+	function movieSearch(event) {
+		event.preventDefault();
 		var queryMovie = $('#search-input').val().trim();
-		var queryURL = 'http://www.omdbapi.com/?s='+queryMovie+'&y=&type=movie&r=json&apikey=40e9cece';
+		console.log("search: " + queryMovie);
+		var queryURL = '/api/movieSearch/'+queryMovie;
 
-		$.ajax({
-			URL: queryURL,
-			method: 'GET'
-		}).done(function(response) {
-			console.log(response)
-		});
-	}
+        console.log(queryURL);
+		
+		$.get(queryURL);
+	};
 
 	$('#search-submit').on('click', movieSearch);
 });
