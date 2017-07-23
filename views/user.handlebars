@@ -55,7 +55,7 @@
 
                         </div>
                         <!-- /input-group -->
-                                                
+
                     </div>
                                         <!-- /.col-lg-6 -->
                 </div>
@@ -79,7 +79,7 @@
 
                   <ul>
            		     {{#each data}}
-                         <form action='movie/updateOn e/?_method=PUT' method='POST'>
+                         <form action='/api/wachlist' method='POST'>
                          <input type='hidden' name='devoured' value='true'>
                          <button type='submit' class="btn btn-default">Watch later!</button>
                                 </form>
