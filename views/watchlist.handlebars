@@ -19,9 +19,9 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="/user">Home</a></li>
                             <li><a href="#">About</a></li>
-                            <li><a href="/api/watchlist">Watchlist</a></li>
+                            <li class="active"><a href="#">Watch List</a></li>
                         </ul>
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -35,10 +35,10 @@
             </div>
         </nav>
         <section id="searchBar">
-            <div class="container">
+           {{!--  <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
-                      
+                       
                         <div class="input-group input-group-lg">
                         <form action="/api/movieSearch?_method=PUT" method="POST">
                             <input type="text" class="form-control" id="search-input" aria-label="keyWords" placeholder="Search..." name="movie">
@@ -55,18 +55,18 @@
 
                         </div>
                         <!-- /input-group -->
-
+                                                
                     </div>
-                                        <!-- /.col-lg-6 -->
-                </div>
+                                       
+                </div> --}}
                 <!-- / row -->
                 <div class="row">
                             <div class="col col-left-center col-full-xs bottom_divider">
-                                <h2>SEARCH RESULT:<span id=>{{movieSearch}}</span></h2 >
+                                <h2>WATCH LIST:<span id="search-term"</span></h2 >
                                 <!-- articles will display here -->
                             </div>
                         </div>
-            {{!-- </div> --}}
+          
             <!-- / container-->
         </section>
         <!-- /.section-->
@@ -75,26 +75,31 @@
         
             <div class="row">
                 <div class="col col-left-center col-full-xs" id="searchResult">
+                    {{!-- {{watchlist}} --}}
 
-                 
                   <ul>
-           		     {{#each data}}
-                      <div class='eachMovie bottom_divider'>
-                         <form action='/api/wachlist' method='POST'>
-                         <input type='hidden' name='wachlist' value='true'>
-                         <button type='submit' class="btn btn-default" id="watchlater" style="">Watch later!</button>
+           		     {{#each watchlist}}
+                         <form action="/api/watchlist/{{this.id}}?_method=DELETE" method="POST">
+                         <input type='hidden' name='movie' value='true'>
+                         <button type='submit' class="btn btn-default">Remove!</button>
                                 </form>
-                    <img src={{this.Poster}} alt="some_text" style="width:150px;height:150px;">
-                    <h3>{{this.Title}}</h3>
-                    <h5>{{this.Year}}</h5>
+                    <img src={{poster}} alt="some_text" style="width:150px;height:150px;">
+                    <h3>{{title}}</h3>
+                    <h5>{{year}}</h5>
            			
-                    </div>
-					
+
+                    
+           			
+
+                         
+
+                        <div class='eachMovie bottom_divider'>
+					 </div>
 							
                    {{/each}}
 
                      </ul>
-             
-            </div>
+                    </div> 
+                </div>
         {{!-- </section> --}}
        </div>
