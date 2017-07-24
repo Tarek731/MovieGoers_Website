@@ -79,8 +79,8 @@
 
                   <ul>
            		     {{#each watchlist}}
-                         <form action='movie/updateOn e/?_method=PUT' method='POST'>
-                         <input type='hidden' name='devoured' value='true'>
+                         <form action="/api/watchlist/{{this.id}}?_method=DELETE" method="POST">
+                         <input type='hidden' name='movie' value='true'>
                          <button type='submit' class="btn btn-default">Remove!</button>
                                 </form>
                     <img src={{poster}} alt="some_text" style="width:150px;height:150px;">
