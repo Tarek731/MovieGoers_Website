@@ -9,14 +9,20 @@ var models = require('../models');
 router.route('/watchlist/:movieId?')
 	.get(isLoggedIn, function(req, res) {
 		models.watchlist.findAll({ where: { userId: req.user.id }}).then(function(list) {
+           
+			// console.log(JSON.stringify(list));
+               
+			var watchlist = JSON.stringify(list);
 
-			console.log(list);
+			var dataObj = JSON.parse(watchlist);
+
+			console.log(dataObj);
 			var hbsObj = {
 				title: 'Movies - watchlist',
-				list: list
+				watchlist: dataObj
 			};
-			res.render('watchlist', hbsObj)
-
+			res.render('watchlist', hbsObj);
+            console.log("hbsObj:" + hbsObj);
 		});
 	})
 	.post(isLoggedIn, function(req, res) {
@@ -53,6 +59,7 @@ router.put('/movieSearch', function(req, res) {
 		var dataObj = JSON.parse(body);
 		var hbsObj = {
 			title: "Movies - User",
+			movieSearch: queryMovie,
 			data: dataObj.Search
 		};
 
