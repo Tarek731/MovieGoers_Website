@@ -1,6 +1,7 @@
 // node packages
 var express = require('express');
 var request = require('request');
+
 // setup router
 var router = express.Router();
 
@@ -43,8 +44,8 @@ router.get('/userData', isLoggedIn, function(req, res) {
 });
 
 router.put('/movieSearch', function(req, res) {
-		var queryMovie = req.body.movie;
-		var queryURL = 'http://www.omdbapi.com/?s='+queryMovie+'&y=&type=movie&r=json&apikey=40e9cece';
+	var queryMovie = req.body.movie;
+	var queryURL = 'http://www.omdbapi.com/?s='+queryMovie+'&y=&type=movie&r=json&apikey=40e9cece';
 	request(queryURL, function(err, response, body) {
 		var dataObj = JSON.parse(body);
 		var hbsObj = {

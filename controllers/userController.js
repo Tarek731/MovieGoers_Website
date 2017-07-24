@@ -1,12 +1,12 @@
 // node packages
 var express = require('express');
 var passport = require('passport');
-
-// setup router
-var router = express.Router();
 var fs = require("fs")
 var inquirer = require("inquirer");
 var Twitter = require('twitter');
+
+// setup router
+var router = express.Router();
 
 var request = require('request');
 // var command = process.argv[2];
@@ -40,12 +40,10 @@ var getTweets = new Promise(
 
 router.get ('/', function(req, res) {
 	
-
 	var data = {
 		title: 'Movies',
 		// tweets: tweetsList
 	}
-
 
 	if (req.isAuthenticated()) {
 		res.redirect('/user');
@@ -53,10 +51,10 @@ router.get ('/', function(req, res) {
 		console.log("finding bug");
 		getTweets.then( function(tweetsList){
 			console.log('wth', tweetsList)
-		// passing tweets to handlebars page
+			// passing tweets to handlebars page
 			data.tweets = tweetsList;
 			res.render('index', data);
-		})
+		});
 	}
 });
 
@@ -87,25 +85,6 @@ router.get('/logout', function(req, res) {
 router.get('/user', isLoggedIn, function(req, res) {
 	res.render('user', { title: 'Movies - User' })
 });
-
-
-//parendu added
-//add watchlist movie
-// router.post('/user', function(req, res){
-// 	user.create(req.body.title, function(result){
-// 		res.redirect('/user');
-// 	});
-// });
-
-//parendu added
-//display watchlist
-// router.get('/watchlist', function(req, res) {
-// 	burger.selectAll(function(data) {
-// 		var hbsObject = {watchlist: data};
-// 		console.log(hbsObject);
-// 		res.render('watchlist.handlebars', hbsObject);
-// 	});
-// });
 
 // function to test if user is logged in
 function isLoggedIn(req, res, next) {
