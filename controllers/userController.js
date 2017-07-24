@@ -41,29 +41,6 @@ router.get('/user', isLoggedIn, function(req, res) {
 	res.render('user', { title: 'Movies - User' })
 });
 
-//parendu added
-//add watchlist movie
-// router.post('/user', function(req, res){
-// 	user.create(req.body.title, function(result){
-// 		res.redirect('/user');
-// 	});
-// });
-
-//parendu added
-//display watchlist
-// router.get('/watchlist', function(req, res) {
-// 	burger.selectAll(function(data) {
-// 		var hbsObject = {watchlist: data};
-// 		console.log(hbsObject);
-// 		res.render('watchlist.handlebars', hbsObject);
-// 	});
-// });
-
-
-
-
-
-
 module.exports = router;
 
 // function to test if user is logged in
