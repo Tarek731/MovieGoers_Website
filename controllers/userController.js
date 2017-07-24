@@ -1,12 +1,12 @@
 // node packages
 var express = require('express');
 var passport = require('passport');
-
-// setup router
-var router = express.Router();
 var fs = require("fs")
 var inquirer = require("inquirer");
 var Twitter = require('twitter');
+
+// setup router
+var router = express.Router();
 
 var request = require('request');
 // var command = process.argv[2];
@@ -40,12 +40,10 @@ var getTweets = new Promise(
 
 router.get ('/', function(req, res) {
 	
-
 	var data = {
 		title: 'Movies',
 		// tweets: tweetsList
 	}
-
 
 	if (req.isAuthenticated()) {
 		res.redirect('/user');
@@ -53,10 +51,10 @@ router.get ('/', function(req, res) {
 		console.log("finding bug");
 		getTweets.then( function(tweetsList){
 			console.log('wth', tweetsList)
-		// passing tweets to handlebars page
+			// passing tweets to handlebars page
 			data.tweets = tweetsList;
 			res.render('index', data);
-		})
+		});
 	}
 });
 
