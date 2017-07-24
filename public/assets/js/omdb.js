@@ -1,4 +1,4 @@
-$(document).ready(function() {
+ 
 	function movieSearch(event) {
 		event.preventDefault();
 		var queryMovie = $('#search-input').val().trim();
@@ -6,13 +6,41 @@ $(document).ready(function() {
 		var queryURL = '/api/movieSearch/'+queryMovie;
 
         console.log(queryURL);
-		
-
-		
-
+	
 	$.getJSON(queryURL, function() {
          console.log("success");
      });
+    }
+
+    
+    $(function() {
+  $('#trigger').hover(function(e) {
+    $('div#pop-up').show()
+      .css('top', e.pageY)
+      .css('left', e.pageX)
+      .appendTo('body');
+  }, function() {
+    $('div#pop-up').hide();
+  });
+});
+
+  $(function() {
+  var moveLeft = 20;
+  var moveDown = 10;
+
+  $('#trigger').hover(function(e) {
+    $('div#pop-up').show();
+     
+  }, function() {
+    $('div#pop-up').hide();
+  });
+
+  $('a#trigger').mousemove(function(e) {
+    $("div#pop-up").css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft);
+  });
+
+});
+
  // .done(function(response) {
 	// 		console.log(response);
 	// 		console.log(response.Search);
@@ -73,7 +101,7 @@ $(document).ready(function() {
 
 
 		// });
-	}
+	
 
 	 // $('#search-submit').on('click', movieSearch);
 });

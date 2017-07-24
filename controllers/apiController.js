@@ -25,6 +25,19 @@ router.route('/watchlist/:movieId?')
             console.log("hbsObj:" + hbsObj);
 		});
 	})
+	//commented by pp
+	// .post(isLoggedIn, function(req, res) {
+	// 	models.watchlist.create(req.body).then(function(list) {
+	// 		console.log(list);
+	// 		var hbsObj = {
+	// 			title: 'Movies - watchlist',
+	// 			list: list
+	// 		};
+	// 		res.render('user', hbsObj)
+	// 	});
+	// })
+
+	//added by pp
 	.post(isLoggedIn, function(req, res) {
 		models.watchlist.create(req.body).then(function(list) {
 			console.log(list);
@@ -32,9 +45,11 @@ router.route('/watchlist/:movieId?')
 				title: 'Movies - watchlist',
 				list: list
 			};
-			res.render('watchlist', hbsObj)
+			res.render('user', hbsObj)
 		});
 	})
+
+	
 	.delete(isLoggedIn, function(req, res) {
 		models.watchlist.destroy({ where: { id: req.params.movieId }}).then(function() {
 			
@@ -76,6 +91,7 @@ router.put('/movieSearch', function(req, res) {
 		}
 	});
 });
+
 
 module.exports = router;
 

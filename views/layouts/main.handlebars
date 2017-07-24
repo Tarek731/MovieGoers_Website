@@ -56,6 +56,18 @@ img {
     margin-bottom: 10px;
     padding-bottom: 10px;
 }
+/* HOVER STYLES */
+div#pop-up {
+  display: none;
+  position: absolute;
+  width: 280px;
+  padding: 10px;
+  background: #eeeeee;
+  color: #000000;
+  border: 1px solid #1a1a1a;
+  font-size: 90%;
+}
+
 </style>
 	</head>
 
@@ -65,7 +77,43 @@ img {
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<!-- Bootstrap JS -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 		<script type="text/javascript" src="assets/js/app.js"></script>
 		<script type="text/javascript" src="assets/js/omdb.js"></script>
+	{{!-- pop up  --}}
+
+<script>
+
+		$(document).ready(function() {
+		   // $(function() {
+		   //     $('img#trigger').hover(function(e) {
+		   //        $('div#pop-up').show()
+		            
+		   //            }, function() {
+		   //         $('div#pop-up').hide();
+		   //     });
+		   // });
+
+		  $(function() {
+		       var moveLeft = 20;
+		       var moveDown = 10;
+
+		       $('img#trigger').hover(function(e) {
+		       $('div#pop-up').show();
+		     
+		       }, function() {
+		          $('div#pop-up').hide();
+		       });
+
+		     $('img#trigger').mousemove(function(e) {
+		       $("div#pop-up").css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft);
+		     });
+
+		  });
+
+		});
+</script>
+
 	</body>
 </html>
