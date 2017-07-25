@@ -63,43 +63,7 @@ img {
 
 	<body>
 		
-        <!-- navbar with search -->
-        <nav class="navbar navbar-default navbar-inverse navbar-toggleable-lg">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <!-- navbar collapses to button on small screen -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <a class="navbar-brand" href="#">WebSiteName</a>
-                        <li class="active"><a href="/">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Resources</a></li>
-                    </ul>
-
-                    {{!-- the movie databse search keyword form --}}
-                    <form class="navbar-form navbar-right" action="/api/keyword" method="GET">
-                        <div class="input-group">
-                            <input type="text" class="form-control searchField" placeholder="Search Actors">
-                            <div class="input-group-btn">
-                                <button class="btn btn-default search" type="submit">
-                                    <i class="glyphicon glyphicon-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <!-- log in glyphicon and link in navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    </ul>
-                </div>
-        </nav>
-        <!-- end navbar -->
-
-        <div class="display"></div>
+        
 
 
 		{{{body}}}
