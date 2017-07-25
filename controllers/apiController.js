@@ -20,6 +20,7 @@ router.route('/watchlist/:movieId?')
 			console.log(dataObj);
 			var hbsObj = {
 				title: 'Movies - watchlist',
+				username: req.user.username,
 				watchlist: dataObj
 			};
 			res.render('watchlist', hbsObj);
@@ -40,11 +41,7 @@ router.route('/watchlist/:movieId?')
 				userId: req.user.id
 			}
 			models.watchlist.create(movie).then(function(list) {
-				var hbsObj = {
-					title: 'Movies - watchlist',
-					list: list
-				};
-				res.render('watchlist', hbsObj)
+				
 			});
 		});
 		
