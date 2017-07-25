@@ -17,7 +17,26 @@ var keys = require('../public/assets/js/keys.js');
 var client = new Twitter(keys.twitterKeys);
 // var movie = process.argv[3];
 
-
+router.get('/keyword', function(req, res){
+	console.log("--------------------------")
+	console.log("----------kjhghfjgdhgfdfsgfdzd----------------")
+	console.log(req.body);
+	res.send("work u bum")
+var queryKeyword = req.body.searchField;
+var queryURL = 'https://www.themoviedb.org/search?query='+queryKeyword;
+request(queryURL, function(err, response, body) {
+		var dataObj = JSON.parse(body);
+		var hbsObj = {
+			title: "Movies - User",
+			data: dataObj.Search
+		};
+		if (req.isAuthenticated()) {
+			res.render('user', hbsObj);
+		} else {
+			res.render('index', hbsObj);
+		}
+	});
+});
 
 var getTweets = new Promise( 
 	function(resolve, reject) {
