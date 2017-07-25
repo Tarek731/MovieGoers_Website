@@ -43,11 +43,7 @@ router.route('/watchlist/:movieId?')
 				userId: req.user.id
 			}
 			models.watchlist.create(movie).then(function(list) {
-				var hbsObj = {
-					title: 'Movies - watchlist',
-					list: list
-				};
-				res.render('watchlist', hbsObj)
+	
 			});
 		});
 		

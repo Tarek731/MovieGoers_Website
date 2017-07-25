@@ -82,7 +82,7 @@ router.get('/logout', function(req, res) {
 });
 
 router.get('/user', isLoggedIn, function(req, res) {
-	res.render('user', { title: 'Movies - User' })
+	res.render('user', { title: 'Movies - User', username: req.user.username })
 });
 
 module.exports = router;
