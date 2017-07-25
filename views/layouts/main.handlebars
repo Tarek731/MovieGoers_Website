@@ -93,30 +93,30 @@ div#pop-up {
 	 
 	{{!-- pop up  --}}
 
-<script>
+{{!-- <script>
 
-		$(document).ready(function() {
+		// $(document).ready(function() {
 		  
 
-		  $(function() {
-		       var moveLeft = 20;
-		       var moveDown = 10;
+		//   $(function() {
+		//        var moveLeft = 20;
+		//        var moveDown = 10;
 
-		       $('img#trigger').hover(function(e) {
-		       $('div#pop-up').show();
+		//        $('img#trigger').hover(function(e) {
+		//        $('div#pop-up').show();
 		     
-		       }, function() {
-		          $('div#pop-up').hide();
-		       });
+		//        }, function() {
+		//           $('div#pop-up').hide();
+		//        });
 
-		     $('img#trigger').mousemove(function(e) {
-		       $("div#pop-up").css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft);
-		     });
+		//      $('img#trigger').mousemove(function(e) {
+		//        $("div#pop-up").css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft);
+		//      });
 
-		  });
+		//   });
 
-		});
-</script>
+		// });
+</script> --}}
 
 
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -130,18 +130,3 @@ div#pop-up {
 	</body>
 </html>      
 
-{{!-- //
-//   $(".search").on("click", function(event){
-//   	event.preventDefault();
-
-//   	var searchTerm = $(".searchField").val().trim();
-
-//   	var queryURL = "https://www.themoviedb.org/search?query=" + searchTerm + "&api_key=1cf863948f045b7f12721d5ee2275e8b";
-
-//   	$.ajax({url: queryURL, method: 'GET'}).done(function(response){
-//   		$(".display").append(response.data);
-//   	})
-//   })
-
-
-//  --}}
