@@ -105,6 +105,16 @@
 	
 
 	 // $('#search-submit').on('click', movieSearch);
+	$('#watchlater').on('click', function() {
+		var movieTitle = $('#movieTitle').attr('id');
+		var movie = {
+			title: movieTitle
+		}
+		var movie = JSON.stringify(movie);
+		console.log(movie);
+
+		$.post('/api/watchlist',{movie});
+	});
 });
 
 

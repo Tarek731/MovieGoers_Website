@@ -79,23 +79,26 @@
                  
                   <ul>
            		     {{#each data}}
-                       <div class='eachMovie bottom_divider'>
-                         <form action='/api/watchlist/{{this.data}}' method='POST'>
-                              <input type='hidden' name='wachlist' value='true'>
 
-                              <button type='submit' class="btn btn-default" id="watchlist" style="">Watch later!</button>
-                          </form>
-                                <img href="#" src={{this.Poster}} alt="some_text" style="width:150px;height:150px;" id="trigger">
-                                <h3>{{this.Title}}</h3>
-                                <h5>{{this.Year}}</h5>
-           			                       
-                                    <!-- HIDDEN / POP-UP DIV -->
+
+                      <div class='eachMovie bottom_divider'>
+                         <form action='/api/watchlist' method='POST'>
+                         <input type='hidden' name='imdbID' value={{this.imdbID}}>
+                         <button type='submit' class="btn btn-default" id="watchlater" style="">Watch later!</button>
+                                </form>
+                    <img src={{this.Poster}} alt="some_text" style="width:150px;height:150px;">
+                    <h3>{{this.Title}}</h3>
+                    <h5>{{this.Year}}</h5>
+           			
+                    </div>
+					                                    <!-- HIDDEN / POP-UP DIV -->
                         <div id="pop-up">
                           <h3>{{this.Title}}</h3>
                           <h5>{{this.imdbID}}</h5>
                         
                         </div>
-                                                   
+							
+                   {{/each}}
 
                         </div>
                 

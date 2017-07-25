@@ -1,12 +1,11 @@
 // node packages
 var express = require('express');
 var passport = require('passport');
+var fs = require("fs")
+var Twitter = require('twitter');
 
 // setup router
 var router = express.Router();
-var fs = require("fs")
-var inquirer = require("inquirer");
-var Twitter = require('twitter');
 
 var request = require('request');
 // var command = process.argv[2];
@@ -24,10 +23,10 @@ var getTweets = new Promise(
 		var params = {screen_name: 'triharder23'};
 		client.get('statuses/user_timeline', params, function(error, tweets, response) {
 			// console.log('response', response);
-			console.log('tweets', tweets);
+			//console.log('tweets', tweets);
 			if (!error) {
-				console.log("succesful")
-				console.log('tweetslenght', tweets.length);
+				// console.log("succesful")
+				// console.log('tweetslenght', tweets.length);
 				resolve( tweets);
 			}
 			else {
@@ -40,12 +39,10 @@ var getTweets = new Promise(
 
 router.get ('/', function(req, res) {
 	
-
 	var data = {
 		title: 'Movies',
 		// tweets: tweetsList
 	}
-
 
 	if (req.isAuthenticated()) {
 		res.redirect('/user');
@@ -53,10 +50,10 @@ router.get ('/', function(req, res) {
 		console.log("finding bug");
 		getTweets.then( function(tweetsList){
 			console.log('wth', tweetsList)
-		// passing tweets to handlebars page
+			// passing tweets to handlebars page
 			data.tweets = tweetsList;
 			res.render('index', data);
-		})
+		});
 	}
 });
 
@@ -88,24 +85,7 @@ router.get('/user', isLoggedIn, function(req, res) {
 	res.render('user', { title: 'Movies - User' })
 });
 
-
-//parendu added
-//add watchlist movie
-// router.post('/user', function(req, res){
-// 	user.create(req.body.title, function(result){
-// 		res.redirect('/user');
-// 	});
-// });
-
-//parendu added
-//display watchlist
-// router.get('/watchlist', function(req, res) {
-// 	burger.selectAll(function(data) {
-// 		var hbsObject = {watchlist: data};
-// 		console.log(hbsObject);
-// 		res.render('watchlist.handlebars', hbsObject);
-// 	});
-// });
+module.exports = router;
 
 // function to test if user is logged in
 function isLoggedIn(req, res, next) {
@@ -114,5 +94,3 @@ function isLoggedIn(req, res, next) {
 	}
 	res.redirect('/login');
 }
-
-module.exports = router;
