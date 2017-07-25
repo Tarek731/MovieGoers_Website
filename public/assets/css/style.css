@@ -1,10 +1,40 @@
 
+.img1,.img2{
+    margin-left: 91px;
+}
+
+.img3{
+ margin-left: 50px;   
+}
+.row{
+    padding-top: 60px;
+}
+
+.col-md-4{
+    padding-left:137px;
+}
+
+.navbar {
+margin-bottom: 0px;
+border: 0px;
+border-radius: 0px;
+
+}
+
+.movie1, .movie2, .movie3 {
+  width: 100%;
+  height: 300px;
+  max-height: 300px;
+  object-fit: cover; 
+overflow: hidden;
+padding: 0px;
+}
 /*centers carosel image*/
-.carousel-inner > .item > img,
+/*.carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
       /*width: 70%;*/
-      margin:0 auto;
-  }
+      /*margin:0 auto;
+  }*/
 li{
     font-family: 'Montserrat', sans-serif;
 }
@@ -12,6 +42,7 @@ li{
 
 h2,h1{
      font-family: 'Lobster', cursive;  
+         text-align:center;
 }
 .image{
      /*background-image: url("../img/movie.jpg");*/

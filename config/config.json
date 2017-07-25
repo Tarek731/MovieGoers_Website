@@ -1,9 +1,13 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
 
     "password": "password",
 
+=======
+    "password": "letterxbox12",
+>>>>>>> c605db667d3a62d4e99d72a8e91a85b5adb63c12
     "database": "movies_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

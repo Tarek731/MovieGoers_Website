@@ -7,25 +7,29 @@ var router = express.Router();
 
 var models = require('../models');
 
-router.get('/keyword', function(req, res){
+router.post('/keyword', function(req, res){
 	console.log("--------------------------")
 	console.log("----------kjhghfjgdhgfdfsgfdzd----------------")
-	console.log(req.body);
-	res.send("work u bum")
-// var queryKeyword = req.body.searchField;
-// var queryURL = 'https://www.themoviedb.org/search?query='+queryKeyword;
-// request(queryURL, function(err, response, body) {
-// 		var dataObj = JSON.parse(body);
-// 		var hbsObj = {
-// 			title: "Movies - User",
-// 			data: dataObj.Search
-// 		};
-// 		if (req.isAuthenticated()) {
-// 			res.render('user', hbsObj);
-// 		} else {
-// 			res.render('index', hbsObj);
-// 		}
-// 	});
+	console.log('req.body', req.body);
+	
+	
+	var queryKeyword = req.body.searchField;
+	console.log(queryKeyword);
+	// var queryURL = 'https://www.themoviedb.org/search?query='+queryKeyword;
+	var queryURL = 'https://www.themoviedb.org/search?query='+queryKeyword;
+	request(queryURL, function(err, response, body) {
+		var dataObj = JSON.parse(body);
+		console.log(dataObj);
+		var hbsObj = {
+			title: "Movies - User",
+			data: dataObj.Search
+		};
+		if (req.isAuthenticated()) {
+			res.render('user', hbsObj);
+		} else {
+			res.render('index', hbsObj);
+		}
+	});
 });
 
 router.route('/watchlist/:movieId?')
