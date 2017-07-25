@@ -81,6 +81,10 @@ div#pop-up {
 </head>
 
 	<body>
+		
+        
+
+
 		{{{body}}}
 		<!-- jQuery -->
 
@@ -118,8 +122,26 @@ div#pop-up {
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<!-- Bootstrap JS -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="assets/js/style.js"></script>
+
+		<script type="text/javascript" src="assets/js/custom.js"></script>
+
 		<script type="text/javascript" src="assets/js/app.js"></script>
 		<script type="text/javascript" src="assets/js/omdb.js"></script>
 	</body>
-</html>       
+</html>      
+
+{{!-- //
+//   $(".search").on("click", function(event){
+//   	event.preventDefault();
+
+//   	var searchTerm = $(".searchField").val().trim();
+
+//   	var queryURL = "https://www.themoviedb.org/search?query=" + searchTerm + "&api_key=1cf863948f045b7f12721d5ee2275e8b";
+
+//   	$.ajax({url: queryURL, method: 'GET'}).done(function(response){
+//   		$(".display").append(response.data);
+//   	})
+//   })
+
+
+//  --}}
