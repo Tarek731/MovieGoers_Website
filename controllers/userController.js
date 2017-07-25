@@ -2,7 +2,6 @@
 var express = require('express');
 var passport = require('passport');
 var fs = require("fs")
-var inquirer = require("inquirer");
 var Twitter = require('twitter');
 
 // setup router
@@ -24,10 +23,10 @@ var getTweets = new Promise(
 		var params = {screen_name: 'triharder23'};
 		client.get('statuses/user_timeline', params, function(error, tweets, response) {
 			// console.log('response', response);
-			console.log('tweets', tweets);
+			//console.log('tweets', tweets);
 			if (!error) {
-				console.log("succesful")
-				console.log('tweetslenght', tweets.length);
+				// console.log("succesful")
+				// console.log('tweetslenght', tweets.length);
 				resolve( tweets);
 			}
 			else {

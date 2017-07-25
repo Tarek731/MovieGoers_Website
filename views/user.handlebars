@@ -80,8 +80,8 @@
                   <ul>
            		     {{#each data}}
                       <div class='eachMovie bottom_divider'>
-                         <form action='/api/wachlist' method='POST'>
-                         <input type='hidden' name='wachlist' value='true'>
+                         <form action='/api/watchlist' method='POST'>
+                         <input type='hidden' name='imdbID' value={{this.imdbID}}>
                          <button type='submit' class="btn btn-default" id="watchlater" style="">Watch later!</button>
                                 </form>
                     <img src={{this.Poster}} alt="some_text" style="width:150px;height:150px;">
