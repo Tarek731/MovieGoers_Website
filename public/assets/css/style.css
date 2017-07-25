@@ -14,7 +14,8 @@ h2,h1{
      font-family: 'Lobster', cursive;  
 }
 .image{
-     background-image: url("../img/movie.jpg");
+     /*background-image: url("../img/movie.jpg");*/
+     background-image: url("/assets/img/movie.jpg");
        background-size: 100%;
 }
 
@@ -35,7 +36,7 @@ margin-left: 600px;
 body {
    
   background-image: url("../img/halftone.jpg");
-
+   /*background-image: url("/assets/img/halftone.jpg");*/
 }
 #login {
     padding-top: 150px

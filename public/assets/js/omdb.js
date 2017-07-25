@@ -1,5 +1,6 @@
  
-	function movieSearch(event) {
+	$(document).ready(function() {
+  function movieSearch(event) {
 		event.preventDefault();
 		var queryMovie = $('#search-input').val().trim();
 		console.log("search: " + queryMovie);

@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
 
-    "password": "letterxbox12",
+    "password": "password",
 
     "database": "movies_db",
     "host": "127.0.0.1",
