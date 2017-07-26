@@ -1,4 +1,23 @@
+html, body {
+  height: 50px;
+}
 
+#wrap {
+  min-height: 50px;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:50px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  position: relative;
+  margin-top: -50px; /* negative value of footer height */
+  height: 150px;
+  clear:both;
+  padding-top:20px;
+} 
 .img1,.img2{
     margin-left: 91px;
 }
@@ -40,9 +59,15 @@ li{
 }
 
 
-h2,{
+h2{
      font-family: 'Lobster', cursive;  
          text-align:center;
+}
+
+p {
+     font-family: 'Lobster', cursive;  
+         text-align:right;
+        
 }
 .image{
      /*background-image: url("../img/movie.jpg");*/
