@@ -26,12 +26,37 @@ img {
     /*border: 1px solid #ddd;*/
     border-radius: 4px;
     padding: 5px;
-    width: 150px;
-    height: 150px;
-    float: left;
-
+    width: 300px;
+    height: 300px;
+    /*float: left;*/
+}
 .bottom_divider {
-    border-bottom: 1px solid #white;
+    border-bottom: 1px solid;
+    border-color: gray;
     margin-bottom: 10px;
     padding-bottom: 10px;
+}
+
+/* HOVER STYLES */
+div#pop-up {
+  display: none;
+  position: absolute;
+  width: 280px;
+  padding: 10px;
+  background: #eeeeee;
+  color: #000000;
+  border: 1px solid #1a1a1a;
+  font-size: 90%;
+}
+.searchbar {
+	padding-top: 30px;
+  margin-bottom: 30px;
+}
+
+#search-input {
+
+	width: 400px;
+}
+.searchtext {
+  display: none;
 }

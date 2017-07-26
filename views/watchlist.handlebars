@@ -1,5 +1,5 @@
 
-    <div class="container">
+    {{!-- <div class="container"> --}}
         <!-- navbar with search -->
         <nav class="navbar navbar-inverse ">
             <div class="container-fluid">
@@ -11,19 +11,17 @@
                     </button>
                     <a class="navbar-brand" href="#">MovieGoers!</a>
                 </div>
-                <!--        <ul class="nav navbar-nav collapse navbar-collapse">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Resources</a></li>
-            </ul> -->
+              
                 <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav navbar-right">
+                    {{!-- <ul class="nav navbar-nav navbar-right"> --}}
                         <ul class="nav navbar-nav collapse navbar-collapse">
                             <li><a href="/user">Home</a></li>
                             <li><a href="#">About</a></li>
                             <li class="active"><a href="#">Watch List</a></li>
                         </ul>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, User <b class="caret"></b></a>
+                        <ul class="nav navbar-nav navbar-right">
+
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome,{{username}} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Profile</a></li>
                                 <li role="separator" class="divider"></li>
@@ -31,38 +29,13 @@
                             </ul>
                         </li>
                     </ul>
-                </div>
+                </div>  
             </div>
         </nav>
         <section id="searchBar">
-           {{!--  <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3">
-                       
-                        <div class="input-group input-group-lg">
-                        <form action="/api/movieSearch?_method=PUT" method="POST">
-                            <input type="text" class="form-control" id="search-input" aria-label="keyWords" placeholder="Search..." name="movie">
-                            <div class="input-group-btn">
-                                <select type="button" class="btn btn-default" id="search-option" placeholder="select option">
-                                    <option>Movie</option>
-                                    <option>Actor</option>
-                                    <option>Genre</option>
-                                </select>
-                                <button type="submit" class="btn btn-primary" id="search-submit"><span class="glyphicon glyphicon-search"></span></button>
-                            </div>
-                            <!-- /btn-group -->
-                         </form>
-
-                        </div>
-                        <!-- /input-group -->
-                                                
-                    </div>
-                                       
-                </div> --}}
-                <!-- / row -->
-                <div class="row">
+                       <div class="row">
                             <div class="col col-left-center col-full-xs bottom_divider">
-                                <h2>WATCH LIST:<span id="search-term"</span></h2 >
+                                {{!-- <h2>WATCH LIST:<span id="search-term"</span></h2 > --}}
                                 <!-- articles will display here -->
                             </div>
                         </div>
@@ -102,4 +75,4 @@
                     </div> 
                 </div>
         {{!-- </section> --}}
-       </div>
+       {{!-- </div> --}}
