@@ -7,7 +7,7 @@
  margin-left: 50px;   
 }
 .row{
-    padding-top: 60px;
+    padding-top: 30px;
 }
 
 .col-md-4{
@@ -45,7 +45,8 @@ h2,h1{
          text-align:center;
 }
 .image{
-     background-image: url("../img/movie.jpg");
+     /*background-image: url("../img/movie.jpg");*/
+     background-image: url("/assets/img/movie.jpg");
        background-size: 100%;
 }
 
@@ -53,6 +54,8 @@ h2,h1{
     /*background-image: url("../img/wallpaper.jpg");*/
     min-height: 100px; 
     font-family: 'Lobster', cursive;
+    display: block;
+
 }
 
 .form-wrap
@@ -66,7 +69,7 @@ margin-left: 600px;
 body {
    
   background-image: url("../img/halftone.jpg");
-
+   /*background-image: url("/assets/img/halftone.jpg");*/
 }
 #login {
     padding-top: 150px

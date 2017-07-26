@@ -52,6 +52,9 @@ router.route('/watchlist/:movieId?')
             console.log("hbsObj:" + hbsObj);
 		});
 	})
+
+
+	//added by pp
 	.post(isLoggedIn, function(req, res) {
 		var movie = {};
 		var movieId = req.body.imdbID;
@@ -66,11 +69,13 @@ router.route('/watchlist/:movieId?')
 				userId: req.user.id
 			}
 			models.watchlist.create(movie).then(function(list) {
-				
+
 			});
 		});
 		
 	})
+
+	
 	.delete(isLoggedIn, function(req, res) {
 		models.watchlist.destroy({ where: { id: req.params.movieId }}).then(function() {
 			
@@ -98,6 +103,7 @@ router.put('/movieSearch', function(req, res) {
 		var dataObj = JSON.parse(body);
 		var hbsObj = {
 			title: "Movies - User",
+			
 			movieSearch: queryMovie,
 			data: dataObj.Search
 		};
@@ -105,14 +111,18 @@ router.put('/movieSearch', function(req, res) {
 		console.log(hbsObj);
 
 		if (req.isAuthenticated()) {
+
 			res.render('user', hbsObj);
+			
 		} else {
 			res.render('index', hbsObj);
 		}
 	});
 });
 
+
 // the movie database keyword search
+
 
 module.exports = router;
 
