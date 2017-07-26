@@ -16,7 +16,7 @@ router.post('/keyword', function(req, res){
 	var queryKeyword = req.body.searchField;
 	console.log(queryKeyword);
 	// var queryURL = 'https://www.themoviedb.org/search?query='+queryKeyword;
-	var queryURL = 'https://www.themoviedb.org/search?query='+queryKeyword;
+	var queryURL = 'https://api.themoviedb.org/3/movie/'+queryKeyword+'/keywords?api_key=1cf863948f045b7f12721d5ee2275e8b';
 	request(queryURL, function(err, response, body) {
 		var dataObj = JSON.parse(body);
 		console.log(dataObj);

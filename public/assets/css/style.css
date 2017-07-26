@@ -11,7 +11,7 @@
 }
 
 .col-md-4{
-    padding-left:137px;
+    padding-left:102px;
 }
 
 .navbar {
@@ -40,7 +40,7 @@ li{
 }
 
 
-h2,h1{
+h2,{
      font-family: 'Lobster', cursive;  
          text-align:center;
 }
