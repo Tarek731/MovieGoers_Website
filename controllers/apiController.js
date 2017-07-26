@@ -7,6 +7,7 @@ var router = express.Router();
 
 var models = require('../models');
 
+// the movie database keyword search
 router.post('/keyword', function(req, res){
 	console.log("--------------------------")
 	console.log("----------kjhghfjgdhgfdfsgfdzd----------------")
@@ -52,15 +53,13 @@ router.route('/watchlist/:movieId?')
             console.log("hbsObj:" + hbsObj);
 		});
 	})
-
-
 	//added by pp
 	.post(isLoggedIn, function(req, res) {
 		var movie = {};
 		var movieId = req.body.imdbID;
 		var queryURL = 'http://www.omdbapi.com/?i='+movieId+'&y=&type=movie&r=json&apikey=40e9cece';
 		request(queryURL, function(err, response, body) {
-			body = JSON.parse(body)
+			body = JSON.parse(body);
 			movie = {
 				title: body.Title,
 				year: body.Year,
@@ -68,14 +67,11 @@ router.route('/watchlist/:movieId?')
 				poster: body.Poster,
 				userId: req.user.id
 			}
-			models.watchlist.create(movie).then(function(list) {
-
+			models.watchlist.findOrCreate({ where: movie }).then(function(data) {
 			});
 		});
 		
 	})
-
-	
 	.delete(isLoggedIn, function(req, res) {
 		models.watchlist.destroy({ where: { id: req.params.movieId }}).then(function() {
 			
@@ -119,10 +115,6 @@ router.put('/movieSearch', function(req, res) {
 		}
 	});
 });
-
-
-// the movie database keyword search
-
 
 module.exports = router;
 
