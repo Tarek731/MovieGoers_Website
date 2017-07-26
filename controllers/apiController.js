@@ -21,7 +21,7 @@ router.post('/keyword', function(req, res){
 		var dataObj = JSON.parse(body);
 		console.log(dataObj);
 		var hbsObj = {
-			title: "Movies - User",
+			title: "MovieGoers - User",
 			data: dataObj.Search
 		};
 		if (req.isAuthenticated()) {
@@ -44,7 +44,7 @@ router.route('/watchlist/:movieId?')
 
 			console.log(dataObj);
 			var hbsObj = {
-				title: 'Movies - watchlist',
+				title: 'MovieGoers - watchlist',
 				username: req.user.username,
 				watchlist: dataObj
 			};
@@ -97,18 +97,25 @@ router.get('/userData', isLoggedIn, function(req, res) {
 //Search movie using omdapi
 router.put('/movieSearch', function(req, res) {
 	var queryMovie = req.body.movie;
-	var queryURL = 'http://www.omdbapi.com/?s='+queryMovie+'&y=&type=movie&r=json&apikey=40e9cece';
-  
+	//var queryURL = 'http://www.omdbapi.com/?s='+queryMovie+'&y=&type=movie&r=json&apikey=40e9cece';
+  //pp
+   var queryURL = 'http://api.themoviedb.org/3/search/movie?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&query=' +queryMovie
+	
 	request(queryURL, function(err, response, body) {
+		console.log(body);
+		
 		var dataObj = JSON.parse(body);
+		console.log(dataObj);
+		
 		var hbsObj = {
-			title: "Movies - User",
+			title: "MovieGoers - User",
 			
 			movieSearch: queryMovie,
-			data: dataObj.Search
+			// data: dataObj.Search
+			data: dataObj.results
 		};
 
-		console.log(hbsObj);
+		console.log("hbsObj1:" +hbsObj);
 
 		if (req.isAuthenticated()) {
 
