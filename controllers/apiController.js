@@ -53,7 +53,7 @@ router.route('/watchlist/:movieId?')
 		var movieId = req.body.imdbID;
 		var queryURL = 'http://www.omdbapi.com/?i='+movieId+'&y=&type=movie&r=json&apikey=40e9cece';
 		request(queryURL, function(err, response, body) {
-			body = JSON.parse(body)
+			body = JSON.parse(body);
 			movie = {
 				title: body.Title,
 				year: body.Year,
