@@ -103,6 +103,7 @@ router.put('/movieSearch', function(req, res) {
 		var dataObj = JSON.parse(body);
 		var hbsObj = {
 			title: "Movies - User",
+			
 			movieSearch: queryMovie,
 			data: dataObj.Search
 		};
@@ -110,7 +111,9 @@ router.put('/movieSearch', function(req, res) {
 		console.log(hbsObj);
 
 		if (req.isAuthenticated()) {
+
 			res.render('user', hbsObj);
+			
 		} else {
 			res.render('index', hbsObj);
 		}

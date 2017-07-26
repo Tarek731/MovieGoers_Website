@@ -8,6 +8,8 @@
 		<link rel="icon" href="assets/img/icon.png" type="image/x-icon">
 		<!-- Bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+       
+
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -22,59 +24,6 @@
 	   <link rel="stylesheet" href="assets/css/style.css">	
 		<link rel="stylesheet" href="assets/css/user.css">
 
-<style>
-h2 {
-	text-align: left;
-	text-transform: uppercase;
-
-}
-
-.divider {
-	width: 100%;
-	padding: 10px 0px;
-	border-bottom: solid 15px white;
-	border-top: solid 15px white;
-}
-
-.movie {
-	padding-top: 20px;
-	padding-bottom: 20px;
-	/*background: url(../img/movie.jpg) no-repeat center fixed;*/
-}
-
-.eachMovie {
-	padding-bottom: 20px;
-	margin-left: 15px;
-}
-
-img {
-    /*border: 1px solid #ddd;*/
-    border-radius: 4px;
-    padding: 5px;
-    width: 150px;
-    height: 150px;
-    /*float: left;*/
-}
-.bottom_divider {
-    border-bottom: 1px solid;
-    border-color: gray;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-}
-
-/* HOVER STYLES */
-div#pop-up {
-  display: none;
-  position: absolute;
-  width: 280px;
-  padding: 10px;
-  background: #eeeeee;
-  color: #000000;
-  border: 1px solid #1a1a1a;
-  font-size: 90%;
-}
-
-</style>
 
 
 
@@ -93,33 +42,10 @@ div#pop-up {
 	 
 	{{!-- pop up  --}}
 
-{{!-- <script>
-
-		// $(document).ready(function() {
-		  
-
-		//   $(function() {
-		//        var moveLeft = 20;
-		//        var moveDown = 10;
-
-		//        $('img#trigger').hover(function(e) {
-		//        $('div#pop-up').show();
-		     
-		//        }, function() {
-		//           $('div#pop-up').hide();
-		//        });
-
-		//      $('img#trigger').mousemove(function(e) {
-		//        $("div#pop-up").css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft);
-		//      });
-
-		//   });
-
-		// });
-</script> --}}
 
 
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<!-- Bootstrap JS -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
@@ -127,6 +53,7 @@ div#pop-up {
 
 		<script type="text/javascript" src="assets/js/app.js"></script>
 		<script type="text/javascript" src="assets/js/omdb.js"></script>
+		
 	</body>
 </html>      
 
