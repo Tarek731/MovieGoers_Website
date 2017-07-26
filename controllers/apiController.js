@@ -7,6 +7,7 @@ var router = express.Router();
 
 var models = require('../models');
 
+// the movie database keyword search
 router.post('/keyword', function(req, res){
 	console.log("--------------------------")
 	console.log("----------kjhghfjgdhgfdfsgfdzd----------------")
@@ -52,8 +53,6 @@ router.route('/watchlist/:movieId?')
             console.log("hbsObj:" + hbsObj);
 		});
 	})
-
-
 	//added by pp
 	.post(isLoggedIn, function(req, res) {
 		var movie = {};
@@ -68,14 +67,11 @@ router.route('/watchlist/:movieId?')
 				poster: body.Poster,
 				userId: req.user.id
 			}
-			models.watchlist.create(movie).then(function(list) {
-
+			models.watchlist.findOrCreate({ where: movie }).then(function(data) {
 			});
 		});
 		
 	})
-
-	
 	.delete(isLoggedIn, function(req, res) {
 		models.watchlist.destroy({ where: { id: req.params.movieId }}).then(function() {
 			
@@ -119,10 +115,6 @@ router.put('/movieSearch', function(req, res) {
 		}
 	});
 });
-
-
-// the movie database keyword search
-
 
 module.exports = router;
 
