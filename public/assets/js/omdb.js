@@ -16,23 +16,6 @@
 
  
 
-  // ==============================
- $("#search-submit").click(function(){
-         // $(".jumbotron").css("display", "none");
-         console.log("slideup");
-         $(".jumbotron").hide();
-     });
-
- 
-
-$("#search-submit").click(function(){
-         // $(".jumbotron").css("display", "none");
-         console.log("slideup");
-         $(".searchtext").css("display", "block");
-     });
-
-
-
 
 
 	$('#watchlater').on('click', function() {
@@ -50,6 +33,3 @@ $("#search-submit").click(function(){
 });
 
 
-function hideFunction() {
-    document.getElementById(".jumbotron").style.display = "none";
-}
