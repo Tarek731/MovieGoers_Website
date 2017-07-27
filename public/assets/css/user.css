@@ -6,9 +6,9 @@ h2 {
 
 .divider {
 	width: 100%;
-	padding: 10px 0px;
-	border-bottom: solid 15px white;
-	border-top: solid 15px white;
+	padding: 1px 0px;
+	/*border-bottom: solid 15px white;
+	border-top: solid 15px white;*/
 }
 
 .movie {
@@ -60,3 +60,12 @@ div#pop-up {
 .searchtext {
   display: none;
 }
+.thumbnail img{
+  border-color: white;
+ width: 400px;
+ height: 400px;
+}
+.thumbnailsize{
+ max-height: 550px;
+ min-height: 550px;
+ }

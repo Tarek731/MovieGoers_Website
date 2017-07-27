@@ -102,7 +102,7 @@ router.get('/logout', function(req, res) {
 
 router.get('/user', isLoggedIn, function(req, res) {
 
-	res.render('user', { title: 'Movies - '+req.user.username, username: req.user.username })
+	res.render('user', { title: 'MovieGoers - '+req.user.username, username: req.user.username })
 
 });
 

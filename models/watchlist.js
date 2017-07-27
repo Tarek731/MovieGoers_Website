@@ -6,9 +6,9 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		year: {
 			type: DataTypes.INTEGER,
-			allowNull: false,
+			allowNull: true,
 		},
-		imdbId: {
+		movieId: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
@@ -25,5 +25,5 @@ module.exports = function(sequelize, DataTypes) {
 			}
 		});
 	}
-	return Watchlist;
+	return Watchlist; 
 }

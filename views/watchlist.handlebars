@@ -52,27 +52,23 @@
 
                   <ul>
            		     {{#each watchlist}}
-                         <form action="/api/watchlist/{{this.id}}?_method=DELETE" method="POST">
-                         <input type='hidden' name='movie' value='true'>
-                         <button type='submit' class="btn btn-default">Remove!</button>
-                                </form>
-                    <img src={{this.poster}} alt="some_text" style="width:150px;height:150px;">
-                    <h3>{{this.title}}</h3>
-                    <h5>{{this.year}}</h5>
-           			
+                        <div class="col-md-3">
+                            <div class="thumbnail thumbnailsize">
+                               <form action="/api/watchlist/{{this.id}}?_method=DELETE" method="POST">
+                                 <input type='hidden' name="id" value={{this.id}}>
+                                 <button type='submit' class="btn btn-danger">Remove!</button>
+                               </form>
+                                    <img src=http://image.tmdb.org/t/p/w185{{this.poster}} alt="some_text">
+                                    
+                                  <div class="caption">
+                                    <p>{{this.title}}</p>
+                                </div>
+                            </div>
+                        </div>       			
+                     {{/each}}
 
-                    
-           			
-
-                         
-
-                        <div class='eachMovie bottom_divider'>
-					 </div>
-							
-                   {{/each}}
-
-                     </ul>
-                    </div> 
-                </div>
+                  </ul>
+                </div> 
+            </div>
         {{!-- </section> --}}
        {{!-- </div> --}}
