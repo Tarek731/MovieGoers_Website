@@ -11,25 +11,65 @@ var models = require('../models');
 router.post('/keyword', function(req, res){
 	console.log("--------------------------")
 	console.log("----------kjhghfjgdhgfdfsgfdzd----------------")
-	console.log('req.body', req.body);
 	
 	
 	var queryKeyword = req.body.searchField;
 	console.log(queryKeyword);
 	// var queryURL = 'https://www.themoviedb.org/search?query='+queryKeyword;
-	var queryURL = 'https://api.themoviedb.org/3/movie/'+queryKeyword+'/keywords?api_key=1cf863948f045b7f12721d5ee2275e8b';
+	var queryURL = 'https://api.themoviedb.org/3/search/person?api_key=1cf863948f045b7f12721d5ee2275e8b&language=en-US&query=' + queryKeyword + '&page=1&include_adult=true';
 	request(queryURL, function(err, response, body) {
 		var dataObj = JSON.parse(body);
-		console.log(dataObj);
-		var hbsObj = {
-			title: "MovieGoers - User",
-			data: dataObj.Search
-		};
-		if (req.isAuthenticated()) {
-			res.render('user', hbsObj);
-		} else {
-			res.render('index', hbsObj);
+
+		var movieTitles = []; 
+		for (var i = 0; i < dataObj.results.length; i++) {
+			var results = dataObj.results[i];
+			for (var j = 0; j < results.known_for.length; j++) {
+				title = results.known_for[j].title;
+				console.log(title);
+				if (title) {
+					movieTitles.push({
+						movieTitle: title
+					});
+				}
+			}
 		}
+
+
+		var moviePosterPath = []; 
+		for (var i = 0; i < dataObj.results.length; i++) {
+			var results = dataObj.results[i];
+			for (var j = 0; j < results.known_for.length; j++) {
+				posterPath = results.known_for[j].posterPath;
+				console.log(posterPath);
+				if (posterPath) {
+					moviePosterPath.push({
+						moviePosterPath: posterPath
+					});
+				}
+			}
+		}
+
+		console.log(movieTitles);
+
+		// var movieTitle = dataObj.results[0].known_for[0].title;
+		// console.log(movieTitle);
+		var posterPath = dataObj.results[0].known_for[0].poster_path;
+		// console.log(posterPath);
+		var hbsObj = {
+
+			movieTitles: movieTitles,
+			moviePosterPath: posterPath
+
+			
+		};
+
+		res.render('index' , hbsObj);
+
+		// if (req.isAuthenticated()) {
+		// 	res.render('user', hbsObj);
+		// } else {
+		// 	res.render('index', hbsObj);
+		// }
 	});
 });
 
