@@ -34,24 +34,58 @@
         </nav>
         <section id="searchBar">
                        <div class="row">
-                            <div class="col col-left-center col-full-xs bottom_divider">
+                            <div class="col col-left-center col-full-xs">
                                 {{!-- <h2>WATCH LIST:<span id="search-term"</span></h2 > --}}
                                 <!-- articles will display here -->
                             </div>
                         </div>
-          
+                          <div class="row" >                   
+                      <div class="col col-left-center col-full-xs searchtext">
+                          <h2>Your Watchlist<span id=>{{movieSearch}}</span></h2 >
+                      </div>
+                  </div>
             <!-- / container-->
         </section>
         <!-- /.section-->
     
         <!-- ============== / divider ================= -->
         
-            <div class="row">
+            <div class="row" style="background-color:#dee1e5;" >
+
                 <div class="col col-left-center col-full-xs" id="searchResult">
                     {{!-- {{watchlist}} --}}
 
-                  <ul>
-           		     {{#each watchlist}}
+            <ul>
+                {{#each watchlist}}
+                  <div class="col-md-6" id="imagecard">
+                    
+                    <div class="media">
+                        <div class="media-left media-middle">
+                         
+                            <img src=http://image.tmdb.org/t/p/w185{{this.poster}} alt="Lights">
+                         
+                        </div>
+                      <div class="media-body">
+
+                          <h4 class="media-heading" style="font-style: 'Source Sans Pro', sans-serif">{{this.title}} ({{this.release_date}}) </h4>
+
+                          <h5 class="rating">{{this.popularity}} <span class="glyphicon glyphicon-star"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{this.vote_average}}  <span class="glyphicon glyphicon-thumbs-up"></span></h5>
+                                                    
+                          <h5 class="overview"> {{this.overview}}</h5>
+                           <form action="/api/watchlist/{{this.id}}?_method=DELETE" method="POST">
+                                 <input type='hidden' name="id" value={{this.id}}>
+                                 <button type='submit' class="btn btn-danger">Remove!</button>
+                               </form>
+                        </div>
+                      </div>
+
+                  </div>
+                {{/each}}
+            </ul>
+
+ {{!--                  <ul>
+
+                     {{#each watchlist}}
                         <div class="col-md-3">
                             <div class="thumbnail thumbnailsize">
                                <form action="/api/watchlist/{{this.id}}?_method=DELETE" method="POST">
@@ -61,13 +95,13 @@
                                     <img src=http://image.tmdb.org/t/p/w185{{this.poster}} alt="some_text">
                                     
                                   <div class="caption">
-                                    <p>{{this.title}}</p>
+                                    <h5>{{this.title}}</h5>
                                 </div>
                             </div>
                         </div>       			
                      {{/each}}
 
-                  </ul>
+                  </ul> --}}
                 </div> 
             </div>
         {{!-- </section> --}}
