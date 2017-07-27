@@ -1,3 +1,9 @@
+.section{
+  background color: black;
+}
+.col-md-4 {
+    background-color: #ccc;
+}
 html, body {
   height: 50px;
 }
@@ -19,14 +25,14 @@ html, body {
   padding-top:20px;
 } 
 .img1,.img2{
-    margin-left: 91px;
+    margin-left: 0px;
 }
 
 .img3{
- margin-left: 50px;   
+ margin-left: 0px;   
 }
 .row{
-    padding-top: 30px;
+    padding-top: 0px;
 }
 
 .col-md-4{
@@ -57,13 +63,19 @@ padding: 0px;
 li{
     font-family: 'Montserrat', sans-serif;
 }
-
-
 h2{
-     font-family: 'Lobster', cursive;  
-         text-align:center;
+    text-align:center; 
 }
 
+h3,h4{
+     font-family: 'Lobster', cursive;  
+         text-align:center;
+
+}
+h5{
+  font-family: 'Montserrat', sans-serif;
+
+}
 p {
      font-family: 'Lobster', cursive;  
          text-align:right;
@@ -80,7 +92,9 @@ p {
     min-height: 100px; 
     font-family: 'Lobster', cursive;
     display: block;
-
+/*padding-top: 0px; */
+    /* padding-bottom: 0px; */
+     margin-bottom: 0px;
 }
 
 .form-wrap

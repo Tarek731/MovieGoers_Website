@@ -39,11 +39,11 @@ router.post('/keyword', function(req, res){
 		for (var i = 0; i < dataObj.results.length; i++) {
 			var results = dataObj.results[i];
 			for (var j = 0; j < results.known_for.length; j++) {
-				title = results.known_for[j].title;
-				console.log(title);
-				if (title) {
-					movieTitles.push({
-						movieTitle: title
+				posterPath = results.known_for[j].posterPath;
+				console.log(posterPath);
+				if (posterPath) {
+					moviePosterPath.push({
+						moviePosterPath: posterPath
 					});
 				}
 			}
