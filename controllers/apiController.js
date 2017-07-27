@@ -33,47 +33,62 @@ router.post('/keyword', function(req, res){
 	});
 });
 
-router.route('/watchlist/:movieId?')
+router.route('/watchlist/:movieID?')
+// router.route('/watchlist/:id?')
 	.get(isLoggedIn, function(req, res) {
 		models.watchlist.findAll({ where: { userId: req.user.id }}).then(function(list) {
-           	console.log(list);
+           	// console.log(list);
 			// console.log(JSON.stringify(list));
        //updated by parendu to make work watchlist page        
 			var watchlist = JSON.stringify(list);
 
 			var dataObj = JSON.parse(watchlist);
 
-			console.log(dataObj);
+			// console.log(dataObj);
 			var hbsObj = {
 				title: 'MovieGoers - watchlist',
 				username: req.user.username,
 				watchlist: dataObj
 			};
 			res.render('watchlist', hbsObj);
-            console.log("hbsObj:" + hbsObj);
+            // console.log("hbsObj:" + hbsObj);
 		});
 	})
 	//added by pp
 	.post(isLoggedIn, function(req, res) {
+		debugger
 		var movie = {};
-		var movieId = req.body.imdbID;
-		var queryURL = 'http://www.omdbapi.com/?i='+movieId+'&y=&type=movie&r=json&apikey=40e9cece';
+		var movieId = req.body.movieID;
+		console.log('movieID', movieId)
+		//var queryURL = 'http://www.omdbapi.com/?i='+movieId+'&y=&type=movie&r=json&apikey=40e9cece';
+		//pp added 
+		var queryURL = 'https://api.themoviedb.org/3/movie/'+movieId+'?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&language=en-US'
+		
+		console.log('queryURL', queryURL)
+
 		request(queryURL, function(err, response, body) {
 			body = JSON.parse(body);
+			console.log('body', body)
 			movie = {
-				title: body.Title,
-				year: body.Year,
-				imdbId: body.imdbID,
-				poster: body.Poster,
+				title: body.title,
+				// year: body.Year,
+				movieId: body.imdb_id,
+				poster: body.poster_path,
 				userId: req.user.id
 			}
 			models.watchlist.findOrCreate({ where: movie }).then(function(data) {
+				console.log('POST /api/watchlist: end of response')
+				res.JSON(data)
+				// console.log(data);
 			});
 		});
 		
 	})
 	.delete(isLoggedIn, function(req, res) {
-		models.watchlist.destroy({ where: { id: req.params.movieId }}).then(function() {
+		console.log(req.body.id)
+		console.log("~~~~~~~~~~~~~~~~~~~")
+
+		models.watchlist.destroy({ where: { id: req.body.id }}).then(function() {
 			
 			//added by pp
 		
@@ -85,6 +100,8 @@ router.route('/watchlist/:movieId?')
 			res.redirect('/api/watchlist');
 		});
 	});
+
+
 
 router.get('/userData', isLoggedIn, function(req, res) {
 	res.json(req.user);
