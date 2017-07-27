@@ -78,12 +78,12 @@
                  
             <ul>
                 {{#each data}}
-                      <div class="col-md-3">
-                        <div class="thumbnail thumbnailsize">
-                             <form action='/api/watchlist' method='POST'>
+                    <div class="col-md-3">
+                      <div class="thumbnail thumbnailsize">
+                        <form action='/api/watchlist' method='POST'>
                              <input type='hidden' name='movieID' value={{this.id}}>
                              <button type='submit' class="btn btn-primary" id="watchlater" >Watch later!</button>
-                                    </form>
+                        </form>
                             <img src=http://image.tmdb.org/t/p/w185{{this.poster_path}} alt="Lights">
                                 <div class="caption">
                                     <p>{{this.title}} ({{this.release_date}})</p>

@@ -25,5 +25,5 @@ module.exports = function(sequelize, DataTypes) {
 			}
 		});
 	}
-	return Watchlist;
+	return Watchlist; 
 }
