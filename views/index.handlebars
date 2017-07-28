@@ -53,7 +53,7 @@
   <div class="carousel-inner" role="listbox">
     <div class="item active">
 
-      <img src="assets/img/movie2.jpg" alt="..." class="movie1">
+      <img src="assets/img/movie1.jpg" alt="..." class="movie1">
 
       <div class="carousel-caption">
         {{!-- <h1>POSTER CULTURE SHOP NOW</h1> --}}
@@ -61,7 +61,7 @@
     </div>
     <div class="item">
 
-      <img src="assets/img/movie1.jpg" class= "movie2"alt="...">
+      <img src="assets/img/movie2.jpg" class= "movie2"alt="...">
 
       <div class="carousel-caption">
       {{!-- <h1>ALL POSTERS SHIP NEXT DAY</h1> --}}
@@ -91,13 +91,17 @@
 <!-- end of carousel -->
 
 <div class="row">
-        <div class="col-xs-12">
+        {{!-- <div class="col-xs-12"> --}}
           
             <!-- dropdown container -->
             <div class="jumbotron">
+               
                 <div class="container">
                     <h1><center>Find Movies With Your Favorite Actors</center></h1>
                     <br><center><h5>By Using the Search Bar Above</h5></center>
+                    
+
+
                     {{!-- <div class="dropdown">
                         <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Catergory
                             <span class="caret"></span></button>
@@ -116,24 +120,35 @@
                     </div> --}}
                 </div>
             </div>
-        </div>
+      {{!--   </div> --}}
     </div>
+
+
+
+<div class="middle">
+<a href="#" class="scroll-down" address="true"></a>
+</div>
+ 
  <div class="titleDisplay">
+            
+
+
+
             {{#each movieTitles}}
+            
+
             <ul>
             
-            <li><h3>{{this.movieTitle}}</h3></li>
+            <h3>{{this.movieTitle}}</h3>
             {{!-- <img src="https://image.tmdb.org/t/p/original/{{moviePosterPath}}"> --}}
             
             </ul>
             {{/each}}
+        
         </div>
-<Br>
-<Br>
-<br>
-<br>
-<br>
-<br>
+
+<div class="middle"></div>
+
   <!-- dropdown container -->
             <div class="jumbotron">
                 <div class="container">
@@ -162,13 +177,13 @@
                 <!-- about container -->
                 <div class="about">
                     <div class="row">
-                        <div class="col-md-4"><center><h2>Maintain Your Personal Watch List</h2><br>
+                        <div class="col-md-4"><center><h4> Your Personal Watch-List</h4><br>
                             <img src="assets/img/hot.png" class = "img1" alt="Mountain View" style="width:100px;height:100px;"></center>
                         </div>
-                        <div class="col-md-4"><center><h2>Share Your Personal Watch List</h2><br>
+                        <div class="col-md-4"><center><h4> Your Watch List-Comments</h4><br>
                             <img src="assets/img/trending.png" class = "img2"alt="Mountain View" style="width:100px;height:100px;"></center>
                         </div>    
-                        <div class="col-md-4"><center><h2>Be Part of the Community</h2><br>
+                        <div class="col-md-4"><center><h4>Be Part of the Community</h4><br>
                             <center><img src="assets/img/new.png" class = "img3"alt="Mountain View" style="width:100px;height:100px;"></center></center>
                         </div>          
                     </div>
