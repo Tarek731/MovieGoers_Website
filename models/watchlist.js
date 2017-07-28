@@ -4,8 +4,8 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		year: {
-			type: DataTypes.INTEGER,
+		release_date: {
+			type: DataTypes.STRING,
 			allowNull: true,
 		},
 		movieId: {
@@ -15,6 +15,18 @@ module.exports = function(sequelize, DataTypes) {
 		poster: {
 			type: DataTypes.STRING,
 			allowNull: false,
+		},
+		overview: {
+			type: DataTypes.TEXT,
+			allowNull: true,
+		},
+		vote_average: {
+			type: DataTypes.STRING,
+			allowNull: true,
+		},
+		popularity: {
+			type: DataTypes.INTEGER,
+			allowNull: true,
 		}
 	});
 

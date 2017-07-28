@@ -15,6 +15,11 @@
     }
 
  
+ // $("#search-submit").on('click', function() {
+ //     $(".searchtext").css('display', 'block');
+ //     console.log("working");
+ //     event.preventDefault(); 
+ // });
 
 
 

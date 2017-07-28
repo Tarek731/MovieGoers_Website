@@ -1,13 +1,14 @@
 // node packages
 var express = require('express');
 var request = require('request');
+var rp = require('request-promise');
 
 // setup router
 var router = express.Router();
 
 var models = require('../models');
 
-// the movie database keyword search
+// Tarek: the movie database keyword search
 router.post('/keyword', function(req, res){
 	console.log("--------------------------")
 	console.log("----------kjhghfjgdhgfdfsgfdzd----------------")
@@ -73,8 +74,8 @@ router.post('/keyword', function(req, res){
 	});
 });
 
+// user and watchlist pages api
 router.route('/watchlist/:movieID?')
-// router.route('/watchlist/:id?')
 	.get(isLoggedIn, function(req, res) {
 		models.watchlist.findAll({ where: { userId: req.user.id }}).then(function(list) {
            	// console.log(list);
@@ -83,8 +84,8 @@ router.route('/watchlist/:movieID?')
 			var watchlist = JSON.stringify(list);
 
 			var dataObj = JSON.parse(watchlist);
-
-			// console.log(dataObj);
+             
+			console.log(dataObj);
 			var hbsObj = {
 				title: 'MovieGoers - watchlist',
 				username: req.user.username,
@@ -96,24 +97,28 @@ router.route('/watchlist/:movieID?')
 	})
 	//added by pp
 	.post(isLoggedIn, function(req, res) {
-		debugger
+		
 		var movie = {};
 		var movieId = req.body.movieID;
-		console.log('movieID', movieId)
+		// console.log('movieID', movieId)
 		//var queryURL = 'http://www.omdbapi.com/?i='+movieId+'&y=&type=movie&r=json&apikey=40e9cece';
 		//pp added 
 		var queryURL = 'https://api.themoviedb.org/3/movie/'+movieId+'?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&language=en-US'
 		
-		console.log('queryURL', queryURL)
-
+		// console.log('queryURL', queryURL)
+        //updated by pp - added new fields based on themoviedb
 		request(queryURL, function(err, response, body) {
 			body = JSON.parse(body);
-			console.log('body', body)
+			// console.log('body', body)
 			movie = {
 				title: body.title,
-				// year: body.Year,
-				movieId: body.imdb_id,
+				release_date: body.release_date,
+				overview: body.overview,
+				popularity: body.popularity,
+				vote_average: body.vote_average,
+				movieId: body.id,
 				poster: body.poster_path,
+
 				userId: req.user.id
 			}
 			models.watchlist.findOrCreate({ where: movie }).then(function(data) {
@@ -126,7 +131,7 @@ router.route('/watchlist/:movieID?')
 	})
 	.delete(isLoggedIn, function(req, res) {
 		console.log(req.body.id)
-		console.log("~~~~~~~~~~~~~~~~~~~")
+		// console.log("~~~~~~~~~~~~~~~~~~~")
 
 		models.watchlist.destroy({ where: { id: req.body.id }}).then(function() {
 			
@@ -147,29 +152,24 @@ router.get('/userData', isLoggedIn, function(req, res) {
 	res.json(req.user);
 });
 
-//Search movie using omdapi
+//Search movie using themoviedb
 router.put('/movieSearch', function(req, res) {
 	var queryMovie = req.body.movie;
 	//var queryURL = 'http://www.omdbapi.com/?s='+queryMovie+'&y=&type=movie&r=json&apikey=40e9cece';
   //pp
    var queryURL = 'http://api.themoviedb.org/3/search/movie?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&query=' +queryMovie
 	
-	request(queryURL, function(err, response, body) {
-		console.log(body);
+        request(queryURL, function(err, response, body) {
+		// console.log(body);
 		
 		var dataObj = JSON.parse(body);
-		console.log(dataObj);
-		
+		// console.log(dataObj);
 		var hbsObj = {
 			title: "MovieGoers - User",
-			
 			movieSearch: queryMovie,
-			// data: dataObj.Search
 			data: dataObj.results
 		};
-
-		console.log("hbsObj1:" +hbsObj);
-
+		// console.log("hbsObj1:" +hbsObj);
 		if (req.isAuthenticated()) {
 
 			res.render('user', hbsObj);
@@ -180,6 +180,74 @@ router.put('/movieSearch', function(req, res) {
 	});
 });
 
+		//pp -  nowt working popular movie
+
+
+var options = {
+    uri: 'https://api.themoviedb.org/3/discover/movie?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&sort_by=popularity.desc&include_adult=true',
+   
+   // uri: 'https://api.themoviedb.org/3/discover/movie?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&primary_release_year=2017&sort_by=vote_average.desc&vote_count.gte=10',
+    headers: {
+        'User-Agent': 'Request-Promise'
+    },
+    json: true // Automatically parses the JSON string in the response 
+};
+ 
+ router.get('/popular', function(req, res, next) {
+rp(options)
+    .then(function (body) {
+        
+        console.log(body.results);
+        
+         var hbsObj = {data: body.results,
+		               poster: body.results.poster_path,
+		               username: req.user.username};
+
+		        
+		        // 
+		      //  res.json(body);
+		        console.log("hbsObj:===========" + body.results);
+		        res.render('popular', hbsObj);
+		       // res.redirect('/api/popular');
+    })
+    .catch(function (err) {
+        // API call failed... 
+    });
+});
+
+
+		// router.get('/popular', function(req, res, next) {
+		//   var uri = 'https://api.themoviedb.org/3/discover/movie?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&sort_by=popularity.desc&include_adult=true'
+		//   request(uri, function(error, response, body) {
+		//       // if (!error && response.statusCode === 200) {
+		//        // console.log(body);
+
+		    
+		// try {
+
+		//     var dataObj = JSON.parse(body);
+		//     console.log(dataObj);
+		//     var hbsObj = {data: dataObj.results,
+		//                    username: req.user.username};
+
+		        
+		//         // 
+		//       //  res.json(body);
+		//         //console.log("hbsObj:===========" + dataObj.results);
+		//         res.render('popular', hbsObj);
+		//         res.redirect('/api/popular');
+		//    // return res.send();
+		// }
+		// catch (err) {
+		//     //mark this error ?
+		// }
+
+		//    });
+		// });
+
+
+ 
+
 module.exports = router;
 
 // function to test if user is logged in
@@ -189,3 +257,4 @@ function isLoggedIn(req, res, next) {
 	}
 	res.redirect('/login');
 }
+
