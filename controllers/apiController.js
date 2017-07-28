@@ -1,6 +1,7 @@
 // node packages
 var express = require('express');
 var request = require('request');
+var rp = require('request-promise');
 
 // setup router
 var router = express.Router();
@@ -158,22 +159,17 @@ router.put('/movieSearch', function(req, res) {
   //pp
    var queryURL = 'http://api.themoviedb.org/3/search/movie?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&query=' +queryMovie
 	
-	request(queryURL, function(err, response, body) {
+        request(queryURL, function(err, response, body) {
 		// console.log(body);
 		
 		var dataObj = JSON.parse(body);
 		// console.log(dataObj);
-		
 		var hbsObj = {
 			title: "MovieGoers - User",
-			
 			movieSearch: queryMovie,
-			// pp: data: dataObj.Search
 			data: dataObj.results
 		};
-
 		// console.log("hbsObj1:" +hbsObj);
-
 		if (req.isAuthenticated()) {
 
 			res.render('user', hbsObj);
@@ -184,56 +180,73 @@ router.put('/movieSearch', function(req, res) {
 	});
 });
 
-//pp - popular movies on user page
-//Search movie using themoviedb
+		//pp -  nowt working popular movie
 
-// router.put('/user', function(req, res) {
-	
-//    var query = 'https://api.themoviedb.org/3/discover/movie?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&sort_by=popularity.desc&include_adult=true'
-	
-// 	request(query, function(err, response, body) {
-// 		console.log(body);
-		
-// 		var dataObj = JSON.parse(body);
-// 		console.log(dataObj);
-		
-// 		var hbsObj = {
-// 			title: "MovieGoers - User",
-			
-// 			movieSearch: queryMovie,
-// 			// pp: data: dataObj.Search
-// 			data: dataObj.results
-// 		};
 
-// 		// console.log("hbsObj1:" +hbsObj);
+var options = {
+    uri: 'https://api.themoviedb.org/3/discover/movie?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&sort_by=popularity.desc&include_adult=true',
+   
+   // uri: 'https://api.themoviedb.org/3/discover/movie?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&primary_release_year=2017&sort_by=vote_average.desc&vote_count.gte=10',
+    headers: {
+        'User-Agent': 'Request-Promise'
+    },
+    json: true // Automatically parses the JSON string in the response 
+};
+ 
+ router.get('/popular', function(req, res, next) {
+rp(options)
+    .then(function (body) {
+        
+        console.log(body.results);
+        
+         var hbsObj = {data: body.results,
+		               poster: body.results.poster_path,
+		               username: req.user.username};
 
-// 		if (req.isAuthenticated()) {
-
-// 			res.render('user', hbsObj);
-			
-// 		} else {
-// 			res.render('index', hbsObj);
-// 		}
-// 	});
-// });
-
-router.post('/recommended', function(req, res, next) {
-  var uri = 'https://api.themoviedb.org/3/discover/movie?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&sort_by=popularity.desc&include_adult=true'
-  request(uri, function(error, response, body) {
-      if (!error && response.statusCode === 200) {
-        console.log(body);
-        var dataObj = JSON.parse(body);
-        var hbsObj = {
-        	data: dataObj.results
-        };
-        res.json(body);
-        res.render('user', hbsObj);
-      } else {
-        res.json(error);
-      }
-    
-  });
+		        
+		        // 
+		      //  res.json(body);
+		        console.log("hbsObj:===========" + body.results);
+		        res.render('popular', hbsObj);
+		       // res.redirect('/api/popular');
+    })
+    .catch(function (err) {
+        // API call failed... 
+    });
 });
+
+
+		// router.get('/popular', function(req, res, next) {
+		//   var uri = 'https://api.themoviedb.org/3/discover/movie?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&sort_by=popularity.desc&include_adult=true'
+		//   request(uri, function(error, response, body) {
+		//       // if (!error && response.statusCode === 200) {
+		//        // console.log(body);
+
+		    
+		// try {
+
+		//     var dataObj = JSON.parse(body);
+		//     console.log(dataObj);
+		//     var hbsObj = {data: dataObj.results,
+		//                    username: req.user.username};
+
+		        
+		//         // 
+		//       //  res.json(body);
+		//         //console.log("hbsObj:===========" + dataObj.results);
+		//         res.render('popular', hbsObj);
+		//         res.redirect('/api/popular');
+		//    // return res.send();
+		// }
+		// catch (err) {
+		//     //mark this error ?
+		// }
+
+		//    });
+		// });
+
+
+ 
 
 module.exports = router;
 
@@ -244,3 +257,4 @@ function isLoggedIn(req, res, next) {
 	}
 	res.redirect('/login');
 }
+
