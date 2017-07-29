@@ -1,7 +1,7 @@
 // node packages
 var express = require('express');
 var request = require('request');
-var rp = require('request-promise');
+// var rp = require('request-promise');
 
 // setup router
 var router = express.Router();
