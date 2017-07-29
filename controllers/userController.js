@@ -52,11 +52,11 @@ router.get ('/', function(req, res) {
 	if (req.isAuthenticated()) {
 		res.redirect('/user');
 	} else {
-		getTweets.then( function(tweetsList){
-			// passing tweets to handlebars page
-			data.tweets = tweetsList;
+		// getTweets.then( function(tweetsList){
+		// 	// passing tweets to handlebars page
+		// 	data.tweets = tweetsList;
 			res.render('index', data);
-		});
+		//});
 	}
 });
 
