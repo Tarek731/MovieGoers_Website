@@ -1,5 +1,3 @@
-
-// 
 function toggleDiv(){
 
     if ($(window).width() < 768) {
@@ -22,6 +20,7 @@ $(document).ready(function () {
     });
 
 });
+
 // function showPassword() {
     
 //     var key_attr = $('#key').attr('type');

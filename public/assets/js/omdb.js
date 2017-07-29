@@ -1,25 +1,24 @@
- 
-	$(document).ready(function() {
-  // ============================
-  function movieSearch(event) {
+ $(document).ready(function() {
+
+	function movieSearch(event) {
 		event.preventDefault();
 		var queryMovie = $('#search-input').val().trim();
 		console.log("search: " + queryMovie);
 		var queryURL = '/api/movieSearch/'+queryMovie;
 
-        console.log(queryURL);
-	
-	$.getJSON(queryURL, function() {
-         console.log("success");
-     });
-    }
+		console.log(queryURL);
 
- 
- // $("#search-submit").on('click', function() {
- //     $(".searchtext").css('display', 'block');
- //     console.log("working");
- //     event.preventDefault(); 
- // });
+		$.getJSON(queryURL, function() {
+			console.log("success");
+		});
+	}
+
+
+	// $("#search-submit").on('click', function() {
+	//     $(".searchtext").css('display', 'block');
+	//     console.log("working");
+	//     event.preventDefault(); 
+	// });
 
 
 
@@ -33,8 +32,6 @@
 
 		$.post('/api/watchlist',{movie});
 	});
-// slide up on user page
+	// slide up on user page
 
 });
-
-

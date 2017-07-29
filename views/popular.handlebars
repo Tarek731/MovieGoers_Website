@@ -9,20 +9,20 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">MovieGoers!</a>
+                    <a class="navbar-brand" href="/">MovieGoers</a>
                 </div>
               
                 <div class="collapse navbar-collapse" id="myNavbar">
                     {{!-- <ul class="nav navbar-nav navbar-right"> --}}
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="/user">Home</a></li>
+                            <li><a href="/api/user">Home</a></li>
                              <li class="active"><a href="/api/popular">Popular Movies</a></li>
                             
-                            <li><a href="#">Watch List</a></li>
+                            <li><a href="/api/watchlist">Watch List</a></li>
                          
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="https://github.com/Tarek731/Project_2">About Us</a></li>
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome,{{username}} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Profile</a></li>
@@ -42,10 +42,10 @@
                             </div>
                         </div>
                           <div class="row" >                   
-                      <div class="col col-left-center col-full-xs searchtext">
-                          <h2>Most Popular Movies<span id=>{{movieSearch}}</span></h2 >
-                      </div>
-                  </div>
+                          <div class="row" >                   
+                           <h1 class="flash">MovieGoers!</h1>            
+          
+                           </div>
             <!-- / container-->
         </section>
         <!-- /.section-->
@@ -56,7 +56,9 @@
 
                 <div class="col col-left-center col-full-xs" id="searchResult">
                     {{!-- {{watchlist}} --}}
-
+                      <div class="col col-left-center col-full-xs searchtext">
+                          <h2>Most Popular Movies<span id=>{{movieSearch}}</span></h2 >
+                      </div>
             <ul>
                 {{#each data}}
                   <div class="col-md-6" id="imagecard">
@@ -64,7 +66,7 @@
                     <div class="media">
                         <div class="media-left media-middle">
                          
-                            <img src=http://image.tmdb.org/t/p/w185{{this.poster}} alt="Lights">
+                            <img src=http://image.tmdb.org/t/p/w185{{this.poster_path}} alt="Lights">
                          
                         </div>
                       <div class="media-body">

@@ -30,6 +30,7 @@ module.exports = function(sequelize, DataTypes) {
 		}
 	});
 
+	// set association to movies in watchlist by user
 	Watchlist.associate = function(models) {
 		Watchlist.belongsTo(models.user, {
 			foreignKey: {
