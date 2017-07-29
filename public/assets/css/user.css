@@ -1,0 +1,138 @@
+h2 {
+	text-align: left;
+	text-transform: capitalize;
+  font-size: 1.5em;
+  
+    font-weight: 600;
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+.divider {
+	width: 100%;
+	padding: 1px 0px;
+	/*border-bottom: solid 15px white;
+	border-top: solid 15px white;*/
+}
+
+.movie {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	/*background: url(../img/movie.jpg) no-repeat center fixed;*/
+}
+
+.eachMovie {
+	padding-bottom: 20px;
+	margin-left: 15px;
+}
+
+img {
+    /*border: 1px solid #ddd;*/
+  border-radius: 0px;
+    padding: 0px;
+    /*width: 250px;
+    height: 300px;*/
+        width: 185px;
+    height: 278px;
+}
+.bottom_divider {
+    border-bottom: 1px solid;
+    border-color: gray;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+/* HOVER STYLES */
+div#pop-up {
+  display: none;
+  position: absolute;
+  width: 280px;
+  padding: 10px;
+  background: #eeeeee;
+  color: #000000;
+  border: 1px solid #1a1a1a;
+  font-size: 90%;
+}
+.searchbar {
+	padding-top: 30px;
+  margin-bottom: 30px;
+}
+
+#search-input {
+
+	width: 400px;
+}
+.searchtext {
+    display: block;
+   
+    margin: 10px 0px 5px 90px;
+    margin-left: 108px;
+    
+}
+
+
+.media-body {
+
+  text-align: left;
+  overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.media {  
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+   
+    box-sizing: border-box;
+    margin-bottom: 34px;
+    display: flex;
+
+  
+}
+
+#imagecard {
+      width: 600px;
+    margin-right: -20px;
+    margin-left: 40px;
+}
+.media-heading {
+  margin-top: 5px;
+   font-family: 'Source Sans Pro', sans-serif;
+ text-align: left;
+  overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+.overview {
+   font-family: 'Source Sans Pro', sans-serif;
+      word-wrap: break-word;
+    white-space: normal;
+    color: #4d4d4d;
+    font-size: 0.9em;
+    line-height: 1.2em;
+    margin-top: 10px;
+}
+.rating {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.flash {
+   animation-name: flash;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+    text-align: center;
+    font-family: 'Ewert', cursive;
+    font-size: 40px;
+}
+
+@keyframes flash {
+    from {color: gray;}
+    to {color: black;}
+}
+.navbar-brand {
+  font-family: 'Ewert', cursive;
+    font-size: 20px;
+    color: #55AA00
+    
+}

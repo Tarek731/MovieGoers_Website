@@ -5,6 +5,7 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var passport = require('passport');
+var path = require('path');
 
 // imported files
 var userRoutes = require('./controllers/userController.js');
@@ -35,7 +36,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 // static folder
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname + '/public')));
+app.use('/api', express.static(path.join(__dirname + '/public')));
 // routes
 app.use('/', userRoutes);
 app.use('/api', apiRoutes);
@@ -44,7 +46,7 @@ app.use('/api', apiRoutes);
 require('./config/passport/passport.js')(passport, models.user);
 
 // setup server to sync models and listen
-models.sequelize.sync({ force: true }).then(function() {
+models.sequelize.sync().then(function() {
 	app.listen(port, function() {
 		console.log('Server listening on PORT ' + port);
 	});

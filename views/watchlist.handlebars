@@ -1,0 +1,110 @@
+
+    {{!-- <div class="container"> --}}
+        <!-- navbar with search -->
+        <nav class="navbar navbar-inverse ">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">MovieGoers</a>
+                </div>
+              
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    {{!-- <ul class="nav navbar-nav navbar-right"> --}}
+                        <ul class="nav navbar-nav collapse navbar-collapse">
+                            <li><a href="/api/user">Home</a></li>
+                            <li><a href="/api/popular">Popular Movies</a></li>
+                            <li class="active"><a href="/api/watchlist">Watch List</a></li>
+                           
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                                <li><a href="https://github.com/Tarek731/Project_2">About Us</a></li>
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome,{{username}} <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Profile</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/logout">Sign Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>  
+            </div>
+        </nav>
+        <section id="searchBar">
+                       <div class="row">
+                            <div class="col col-left-center col-full-xs">
+                                {{!-- <h2>WATCH LIST:<span id="search-term"</span></h2 > --}}
+                                <!-- articles will display here -->
+                            </div>
+                        </div>
+                          <div class="row" >                   
+                           <h1 class="flash">MovieGoers!</h1>
+                          </div>
+            <!-- / container-->
+        </section>
+        <!-- /.section-->
+    
+        <!-- ============== / divider ================= -->
+        
+            <div class="row" style="background-color:#dee1e5;" >
+
+                <div class="col col-left-center col-full-xs" id="searchResult">
+                    {{!-- {{watchlist}} --}}
+                    <div class="col col-left-center col-full-xs searchtext" style="media-left: 95px">
+                          <h2>Your Watchlist<span id=>{{movieSearch}}</span></h2 >
+                      </div>
+
+            <ul>
+                {{#each watchlist}}
+                  <div class="col-md-6" id="imagecard">
+                    
+                    <div class="media">
+                        <div class="media-left media-middle">
+                         
+                            <img src=http://image.tmdb.org/t/p/w185{{this.poster}} alt="Lights">
+                         
+                        </div>
+                      <div class="media-body">
+
+                          <h4 class="media-heading" style="font-style: 'Source Sans Pro', sans-serif">{{this.title}} ({{this.release_date}}) </h4>
+
+                          <h5 class="rating">{{this.popularity}} <span class="glyphicon glyphicon-star"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{this.vote_average}}  <span class="glyphicon glyphicon-thumbs-up"></span></h5>
+                                                    
+                          <h5 class="overview"> {{this.overview}}</h5>
+                           <form action="/api/watchlist/{{this.id}}?_method=DELETE" method="POST">
+                                 <input type='hidden' name="id" value={{this.id}}>
+                                 <button type='submit' class="btn btn-danger">Remove!</button>
+                               </form>
+                        </div>
+                      </div>
+
+                  </div>
+                {{/each}}
+            </ul>
+
+ {{!--                  <ul>
+
+                     {{#each watchlist}}
+                        <div class="col-md-3">
+                            <div class="thumbnail thumbnailsize">
+                               <form action="/api/watchlist/{{this.id}}?_method=DELETE" method="POST">
+                                 <input type='hidden' name="id" value={{this.id}}>
+                                 <button type='submit' class="btn btn-danger">Remove!</button>
+                               </form>
+                                    <img src=http://image.tmdb.org/t/p/w185{{this.poster}} alt="some_text">
+                                    
+                                  <div class="caption">
+                                    <h5>{{this.title}}</h5>
+                                </div>
+                            </div>
+                        </div>       			
+                     {{/each}}
+
+                  </ul> --}}
+                </div> 
+            </div>
+        {{!-- </section> --}}
+       {{!-- </div> --}}

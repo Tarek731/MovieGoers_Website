@@ -11,15 +11,19 @@ module.exports = function(passport, user) {
 		passReqToCallback: true
 	}, function(req, username, password, done) {
 
+		// function to salt and hash passwords
 		var generateHash = function(password) {
 			return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
 		};
 
+		// find username in database
 		User.findOne({
 			where: {
 				username: username
 			}
 		}).then(function(user) {
+
+			// check if username is taken already, else create user
 			if (user) {
 				return done(null, false, { message: 'That username is already taken' });
 			} else {
@@ -31,6 +35,7 @@ module.exports = function(passport, user) {
 					email: req.body.email
 				};
 
+				// create new user in database
 				User.create(userData).then(function(newUser, created) {
 					if (!newUser) {
 						return done(null, false);
@@ -68,15 +73,18 @@ module.exports = function(passport, user) {
 	}, function(req, username, password, done) {
 		var User = user;
 
+		// function to compare hashed and salted passwords
 		var isValidPassword = function(userPass, password) {
 			return bCrypt.compareSync(password, userPass);
 		}
 
+		// find user in database
 		User.findOne({
 			where: {
 				username: username
 			}
 		}).then(function(user) {
+			// check if user name and password are correct
 			if (!user) {
 				return done(null, false, { message: 'Username does not exist.' });
 			}

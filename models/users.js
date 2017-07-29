@@ -24,11 +24,11 @@ module.exports = function(sequelize, DataTypes) {
 		}
 	});
 
+	// set association to movies in watchlist by user
 	User.associate = function(models) {
 		User.hasMany(models.watchlist, {
 			onDelete: 'cascade'
 		});
 	}
-	
 	return User;
 }
