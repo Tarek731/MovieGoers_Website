@@ -9,13 +9,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">MovieGoers!</a>
+                    <a class="navbar-brand" href="#">MovieGoers</a>
                 </div>
               
                 <div class="collapse navbar-collapse" id="myNavbar">
                     {{!-- <ul class="nav navbar-nav navbar-right"> --}}
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="/user">Home</a></li>
+                            <li><a href="/api/user">Home</a></li>
                             <li><a href="/api/popular">Popular Movies</a></li>
                             <li class="active"><a href="#">Watch List</a></li>
                            
@@ -41,10 +41,8 @@
                             </div>
                         </div>
                           <div class="row" >                   
-                      <div class="col col-left-center col-full-xs searchtext">
-                          <h2>Your Watchlist<span id=>{{movieSearch}}</span></h2 >
-                      </div>
-                  </div>
+                           <h1 class="flash">MovieGoers!</h1>
+                          </div>
             <!-- / container-->
         </section>
         <!-- /.section-->
@@ -55,6 +53,9 @@
 
                 <div class="col col-left-center col-full-xs" id="searchResult">
                     {{!-- {{watchlist}} --}}
+                    <div class="col col-left-center col-full-xs searchtext" style="media-left: 95px">
+                          <h2>Your Watchlist<span id=>{{movieSearch}}</span></h2 >
+                      </div>
 
             <ul>
                 {{#each watchlist}}
