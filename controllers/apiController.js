@@ -180,7 +180,7 @@ router.put('/movieSearch', function(req, res) {
 	});
 });
 
-		//pp -  nowt working popular movie
+		//pp -  now working popular movie img is broken
 
 
 var options = {
@@ -214,39 +214,6 @@ rp(options)
         // API call failed... 
     });
 });
-
-
-		// router.get('/popular', function(req, res, next) {
-		//   var uri = 'https://api.themoviedb.org/3/discover/movie?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&sort_by=popularity.desc&include_adult=true'
-		//   request(uri, function(error, response, body) {
-		//       // if (!error && response.statusCode === 200) {
-		//        // console.log(body);
-
-		    
-		// try {
-
-		//     var dataObj = JSON.parse(body);
-		//     console.log(dataObj);
-		//     var hbsObj = {data: dataObj.results,
-		//                    username: req.user.username};
-
-		        
-		//         // 
-		//       //  res.json(body);
-		//         //console.log("hbsObj:===========" + dataObj.results);
-		//         res.render('popular', hbsObj);
-		//         res.redirect('/api/popular');
-		//    // return res.send();
-		// }
-		// catch (err) {
-		//     //mark this error ?
-		// }
-
-		//    });
-		// });
-
-
- 
 
 module.exports = router;
 
