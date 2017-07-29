@@ -166,6 +166,7 @@ router.put('/movieSearch', function(req, res) {
 		// console.log(dataObj);
 		var hbsObj = {
 			title: "MovieGoers - User",
+			searchResult: "searchResult",
 			movieSearch: queryMovie,
 			data: dataObj.results
 		};
@@ -182,11 +183,8 @@ router.put('/movieSearch', function(req, res) {
 
 		//pp -  now working popular movie img is broken
 
-
 var options = {
     uri: 'https://api.themoviedb.org/3/discover/movie?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&sort_by=popularity.desc&include_adult=true',
-   
-   // uri: 'https://api.themoviedb.org/3/discover/movie?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&primary_release_year=2017&sort_by=vote_average.desc&vote_count.gte=10',
     headers: {
         'User-Agent': 'Request-Promise'
     },
@@ -194,6 +192,32 @@ var options = {
 };
  
  router.get('/popular', function(req, res, next) {
+rp(options)
+    .then(function (body) { 
+        console.log(body.results);
+         var hbsObj = {data: body.results,
+		               poster: body.results.poster_path,
+		               username: req.user.username};
+	              //  res.json(body);
+		        console.log("hbsObj:===========" + body.results);
+		        res.render('popular', hbsObj);
+		       // res.redirect('/api/popular');
+    })
+    .catch(function (err) {
+        // API call failed... 
+    });
+});
+
+//pp trying to load latest movies on user page
+var options = {
+    uri: 'http://api.themoviedb.org/3/movie/upcoming?api_key=85b3a680df0c4f07bb1e32b948cbe4c6&sort_by=release_date.desc',
+    headers: {
+        'User-Agent': 'Request-Promise'
+    },
+    json: true // Automatically parses the JSON string in the response 
+};
+ 
+ router.get('/user', function(req, res, next) {
 rp(options)
     .then(function (body) {
         
@@ -207,13 +231,14 @@ rp(options)
 		        // 
 		      //  res.json(body);
 		        console.log("hbsObj:===========" + body.results);
-		        res.render('popular', hbsObj);
+		        res.render('user', hbsObj);
 		       // res.redirect('/api/popular');
     })
     .catch(function (err) {
         // API call failed... 
     });
 });
+
 
 module.exports = router;
 
