@@ -15,23 +15,11 @@
     }
 
  
-
-  // ==============================
- $("#search-submit").click(function(){
-         // $(".jumbotron").css("display", "none");
-         console.log("slideup");
-         $(".jumbotron").hide();
-     });
-
- 
-
-$("#search-submit").click(function(){
-         // $(".jumbotron").css("display", "none");
-         console.log("slideup");
-         $(".searchtext").css("display", "block");
-     });
-
-
+ // $("#search-submit").on('click', function() {
+ //     $(".searchtext").css('display', 'block');
+ //     console.log("working");
+ //     event.preventDefault(); 
+ // });
 
 
 
@@ -50,6 +38,3 @@ $("#search-submit").click(function(){
 });
 
 
-function hideFunction() {
-    document.getElementById(".jumbotron").style.display = "none";
-}

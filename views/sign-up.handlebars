@@ -7,10 +7,10 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <a class="navbar-brand" href="#">MovieGoers!</a>
-                        <li class="active"><a href="/">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Resources</a></li>
+                        <a class="navbar-brand" href="#">MovieGoers</a>
+                        <li><a href="/">Home</a></li>
+                       
+                        {{!-- <li><a href="#">Resources</a></li> --}}
                     </ul>
 
                     {{!-- the movie databse search keyword form --}}
@@ -27,7 +27,8 @@
 
                     <!-- log in glyphicon and link in navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li class="active"><a href="/sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                         <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                     </ul>
                 </div>
@@ -62,6 +63,7 @@
                         </div>
                         <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Sign Up">
                     </form>
+                    <a href="views/sign-up.handlebars" class="forget" data-toggle="modal" data-target=".forget-modal">Already Have an Account? Go to Log-In</a>
                     <hr>
                 </div>
             </div> <!-- /.col-xs-12 -->
