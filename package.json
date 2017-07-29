@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/Tarek731/Project_2.git"
   },
-  "author": "Tarek, Joseph Ball",
+  "author": "Tarek, Joseph Ball, Parendu",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Tarek731/Project_2/issues"
@@ -20,8 +20,6 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
-    "chai": "^4.1.0",
-    "chai-http": "^3.0.0",
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.3",
