@@ -106,6 +106,42 @@ router.get('/user', isLoggedIn, function(req, res) {
 
 });
 
+//pp trying to display popular movie on user page
+// router.route('/sign-up')
+// 	.get(function(req, res) {
+// 		res.render('sign-up', { title: 'Movies - Sign Up' });
+// 	})
+// 	.post(passport.authenticate('local-signup', {
+// 		successRedirect: '/api/user',
+// 		failureRedirect: '/sign-up'
+// 	}));
+
+// router.route('/login')
+// 	.get(function(req, res) {
+// 		res.render('login', { title: 'Movies - Login' });
+// 	})
+// 	.post(passport.authenticate('local-login', {
+// 		successRedirect: '/api/user',
+// 		failureRedirect: '/login'
+// 	}));
+
+// router.get('/logout', function(req, res) {
+// 	req.session.destroy(function(err) {
+// 		res.redirect('/');
+// 	});
+// });
+
+// router.get('/api/user', isLoggedIn, function(req, res) {
+
+// 	res.render('user', { title: 'MovieGoers - '+req.user.username, username: req.user.username })
+
+// });
+
+
+
+
+
+
 module.exports = router;
 
 // function to test if user is logged in
