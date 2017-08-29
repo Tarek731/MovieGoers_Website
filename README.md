@@ -1,4 +1,4 @@
-![logo](https://user-images.githubusercontent.com/25464867/29844674-12cf6b4a-8cde-11e7-9e4c-0164a5c00b49.png)
+![logo](https://user-images.githubusercontent.com/25464867/29845102-9ccc10ae-8cdf-11e7-8acb-357f047b5f88.png)
 # Movie Goers
 Developed Front-End Back-End Website
 
