@@ -4,13 +4,15 @@ Developed Front-End Back-End Website
 
 ## Overview
 ### Capabilities
-Motion Picture Search, Motion Picture Info Search, Motion Picture Saved Watch-List 
-User authentication and acccount log-in
-Search an extensive database of movies with the ability to add movie titles to a personal saved watch-list
-Search extensive database of movies by featured actor 
+* Motion Picture Search, 
+* Motion Picture Info Search, Motion Picture Saved Watch-List 
+* User authentication and acccount log-in
+* Search an extensive database of movies with the ability to add movie titles to a personal saved watch-list
+* Search extensive database of movies by featured actor 
 
 ## Home Page
 ![Home Page](screenshots/home.jpg)
+![actorsearch](https://user-images.githubusercontent.com/25464867/29844005-d8cc97d0-8cdb-11e7-91b6-ae05f10ede4f.png)
 
 
 ## Functionality
