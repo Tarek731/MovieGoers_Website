@@ -1,10 +1,13 @@
 # Movie Goers
-Rutgers Coding Bootcamp Project 2
+Developed Front-End Back-End Website
 
 
 ## Overview
-A web page that lets users search for movies, get info about them, and store movies they want to watch on their own watchlist.
-
+### Capabilities
+Motion Picture Search, Motion Picture Info Search, Motion Picture Saved Watch-List 
+User authentication and acccount log-in
+Search an extensive database of movies with the ability to add movie titles to a personal saved watch-list
+Search extensive database of movies by featured actor 
 
 ## Home Page
 ![Home Page](screenshots/home.jpg)
