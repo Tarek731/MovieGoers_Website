@@ -12,7 +12,11 @@ Developed Front-End Back-End Website
 
 ## Home Page
 ![Home Page](screenshots/home.jpg)
-![actorsearch](https://user-images.githubusercontent.com/25464867/29844005-d8cc97d0-8cdb-11e7-91b6-ae05f10ede4f.png)
+
+
+
+## Actor Search
+![ActorSearch](https://user-images.githubusercontent.com/25464867/29844005-d8cc97d0-8cdb-11e7-91b6-ae05f10ede4f.png)
 
 
 ## Functionality
