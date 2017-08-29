@@ -3,35 +3,35 @@
 Developed Front-End Back-End Website
 
 
-## Overview
-### Capabilities
+> ## Overview
+> ### Capabilities
 * Motion Picture Search, 
 * Motion Picture Info Search, Motion Picture Saved Watch-List 
 * User authentication and acccount log-in
 * Search an extensive database of movies with the ability to add movie titles to a personal saved watch-list
 * Search extensive database of movies by featured actor 
 
-## Home Page
+> ## Home Page
 ![Home Page](screenshots/home.jpg)
 
 
 
-## Actor Search
+> ## Actor Search
 ![ActorSearch](https://user-images.githubusercontent.com/25464867/29844005-d8cc97d0-8cdb-11e7-91b6-ae05f10ede4f.png)
-## Log-In
+> ## Log-In
 ![login](https://user-images.githubusercontent.com/25464867/29844812-9f882572-8cde-11e7-8a0f-866ab259369e.png)
 
-## Sign-Up
+> ## Sign-Up
 ![signup](https://user-images.githubusercontent.com/25464867/29844815-a173b9e6-8cde-11e7-822e-a2322ea14724.png)
 
-## Footer
+> ## Footer
 ![home](https://user-images.githubusercontent.com/25464867/29844816-a334d986-8cde-11e7-935c-a9ae383d263c.png)
 
-## Functionality
+> ## Functionality
 The front end is built with `HTML`, `CSS`, `Bootstrap`, and `Handlebars`. `The Movie Database` API is used to get movie information. The back end is built with `Node`, `Express`, and `Sequelize`. User authentication is done with `Passport`. 
 
 
-## Tech used
+> ## Tech used
 
     "HTML": "5",
     "CSS": "3",
@@ -46,7 +46,7 @@ The front end is built with `HTML`, `CSS`, `Bootstrap`, and `Handlebars`. `The M
     "Passport": "0.3.2"
 
 
-## Authors
+> ## Authors
 *Rutgers Codding Bootcamp Project*
 * **Tarek** - [Tarek](https://github.com/Tarek731)
 * **Parendu** - [Parendu](https://github.com/parendu)
