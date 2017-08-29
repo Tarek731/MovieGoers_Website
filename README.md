@@ -3,8 +3,7 @@
 Developed Front-End Back-End Website
 
 
-> ## Overview
-> ### Capabilities
+> ## Capabilities
 * Motion Picture Search, 
 * Motion Picture Info Search, Motion Picture Saved Watch-List 
 * User authentication and acccount log-in
